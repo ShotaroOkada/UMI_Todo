@@ -1,0 +1,36 @@
+#container {
+    display: grid;
+    height: 100%;
+    /* grid-template-rows: 100px 235px 235px; */
+    grid-template-rows: 1fr 2fr 2fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "addTaskArea addTaskArea"
+        "area0       area1"
+        "area2       area3";
+}
+
+#addTaskArea {
+    grid-area: addTaskArea;
+    background: rebeccapurple
+}
+
+#area0 {
+    grid-area: area0;
+    background: blue;
+}
+
+#area1 {
+    grid-area: area1;
+    background: yellow;
+}
+
+#area2 {
+    grid-area: area2;
+    background: green;
+}
+
+#area3 {
+    grid-area: area3;
+    background: red;
+}
