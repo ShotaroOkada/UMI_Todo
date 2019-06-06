@@ -7,35 +7,33 @@ import IOneTask from 'src/states/oneTask';
 import update from 'immutability-helper';
 
 const initialState: IAllTasks = {
-    allTasks: {
-        addTasks: [],
-        area0Tasks: [],
-        area1Tasks: [],
-        area2Tasks: [],
-        area3Tasks: []
-    }
+    addTasks: [],
+    area0Tasks: [],
+    area1Tasks: [],
+    area2Tasks: [],
+    area3Tasks: []
 }
 
 type AllTasksAction = ChangeTaskQuantityAction | IChangeAreaAction
 
-function addNewTasks(state: IAllTasks, addTasks: IOneTask[]) {
+function addNewTasks(state: IAllTasks, addTask: IOneTask): IAllTasks {
+    const addTasks: IOneTask[] = state.addTasks;
+    addTasks.push(addTask);
     state = update(state, {
-      allTasks: { addTasks: { $set: addTasks } }
+        addTasks: { $set: addTasks }
     });
-  
     return state;
-  }
+}
 
 export default function allTasks(state: IAllTasks = initialState, action: AllTasksAction): IAllTasks {
     switch (action.type) {
         case ChangeAreaActionType.CHANGE_AREA:
             return {
-                ...state,
-                
-            };
+                ...state
+            }
         case ChangeTaskQuantityActionType.TASK_ADD:
             return {
-                ...addNewTasks(state, action.addTasks)
+                ...addNewTasks(state, action.addTask)
             };
         default:
             return state;
