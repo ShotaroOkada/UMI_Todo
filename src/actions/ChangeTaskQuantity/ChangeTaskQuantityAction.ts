@@ -3,7 +3,7 @@ import IOneTask from 'src/states/oneTask';
 
 export interface IAddTaskAction {
     type: ChangeTaskQuantityActionType.TASK_ADD;
-    oneTask: IOneTask;
+    addTasks: IOneTask[];
 }
 
 export interface IDeleteTaskAction {

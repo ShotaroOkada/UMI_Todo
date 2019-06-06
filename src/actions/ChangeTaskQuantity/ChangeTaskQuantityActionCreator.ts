@@ -2,10 +2,10 @@ import IOneTask from 'src/states/oneTask';
 import ChangeTaskQuantityActionType from './ChangeTaskQuantityActionType';
 import { IAddTaskAction, IDeleteTaskAction } from './ChangeTaskQuantityAction';
 
-export function addTask(oneTask: IOneTask): IAddTaskAction {
+export function addTask(addTasks: IOneTask[]): IAddTaskAction {
     return {
         type: ChangeTaskQuantityActionType.TASK_ADD,
-        oneTask
+        addTasks
     }
 }
 
