@@ -8,32 +8,81 @@
         "idea     planning donePlan doing    done";
 }
 
-#areaName {
+#area0title {
     grid-area: areaName;
-    background: rebeccapurple
+    background-image: url(../images/sunny_opacity.png);
+    background-size: contain;
+    border-radius: 10px;
+    margin: 5px 0px 5px 0px;
+    padding: 35px 0 0 0;
+}
+
+#area1title {
+    grid-area: areaName;
+    background-image: url(../images/rainbow_opacity.png);
+    background-size: contain;
+    border-radius: 10px;
+    margin: 5px 0px 5px 0px;
+    padding: 10px;
+}
+
+#area2title {
+    grid-area: areaName;
+    background-image: url(../images/cloud_opacity.png);
+    background-size: contain;
+    border-radius: 10px;
+    margin: 5px 0px 5px 0px;
+    padding: 10px;
+}
+
+#area3title {
+    grid-area: areaName;
+    background-image: url(../images/rain_opacity.png);
+    background-size: contain;
+    border-radius: 10px;
+    margin: 5px 0px 5px 0px;
+    padding: 10px;
 }
 
 #idea {
     grid-area: idea;
-    background: blue
+    background: #FF82B2;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 #planning {
     grid-area: planning;
-    background: yellow
+    background: #FFAD90;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 #donePlan {
     grid-area: donePlan;
-    background: green
+    background: #FFFF99;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 #doing {
     grid-area: doing;
-    background: red
+    background: #93FFAB;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 #done {
     grid-area: done;
-    background: aqua
+    background: #99FFFF;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#taskLayout {
+    display: table;
+    background: whitesmoke;
+    border-radius: 10px;
+    padding: 2px 2px 0px 5px;
+    margin: 10px auto;
 }

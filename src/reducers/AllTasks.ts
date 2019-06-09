@@ -12,7 +12,13 @@ const initialState: IAllTasks = {
         area: 0,
         progress: 0 
     },
-    area0Tasks: [],
+    area0Tasks: [
+        {name: 'a', progress: 0, area:0},
+        {name: 'b', progress: 0, area:0},
+        {name: 'c', progress: 0, area:0},
+        {name: 'd', progress: 0, area:0},
+        {name: 'e', progress: 0, area:0},
+    ],
     area1Tasks: [],
     area2Tasks: [],
     area3Tasks: []

@@ -11,25 +11,94 @@
 
 #addTaskArea {
     grid-area: addTaskArea;
-    background: rebeccapurple
+    background: rebeccapurple;
+    border-radius: 10px;
+    margin: 5px 5px 0px 5px;
+    padding: 10px;
 }
+
 
 #area0 {
     grid-area: area0;
-    background: blue;
+    background-image: url(../images/sunny_opacity.png);
+    background-size: cover;
+    border-radius: 10px;
+    margin: 5px 0px 0px 5px;
+    padding: 10px;
 }
 
 #area1 {
     grid-area: area1;
-    background: yellow;
+    background-image: url(../images/rainbow_opacity.png);
+    background-size: cover;
+    border-radius: 10px;
+    margin: 5px 5px 0px 5px;
+    padding: 10px;
 }
 
 #area2 {
     grid-area: area2;
-    background: green;
+    background-image: url(../images/cloud_opacity.png);
+    background-size: cover;
+    border-radius: 10px;
+    margin: 5px 0px 5px 5px;
+    padding: 10px;
 }
 
 #area3 {
     grid-area: area3;
-    background: red;
+    background-image: url(../images/rain_opacity.png);
+    background-size: cover;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 10px;
+}
+
+#progress0Task {
+    display: inline-block;
+    background: #FF82B2;
+    border-radius: 10px;
+    padding: 2px 2px 0px 5px;
+    margin: 3px;
+}
+
+#progress1Task {
+    display: inline-block;
+    background: #FFAD90;
+    border-radius: 10px;
+    padding: 2px 2px 0px 5px;
+    margin: 3px;
+}
+
+#progress2Task {
+    display: inline-block;
+    background: #FFFF99;
+    border-radius: 10px;
+    padding: 2px 2px 0px 5px;
+    margin: 3px;
+}
+
+#progress3Task {
+    display: inline-block;
+    background: #93FFAB;
+    border-radius: 10px;
+    padding: 2px 2px 0px 5px;
+    margin: 3px;
+}
+
+#progress4Task {
+    display: inline-block;
+    background: #99FFFF;
+    border-radius: 10px;
+    padding: 2px 2px 0px 5px;
+    margin: 3px;
+}
+
+#title {
+    font-weight: bold;
+    font-family: Meiryo;
+    background: white;
+    padding: 3px;
+    display: table;
+    border-radius: 5px;
 }
