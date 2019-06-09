@@ -11,10 +11,10 @@
 
 #addTaskArea {
     grid-area: addTaskArea;
-    background: rebeccapurple;
+    background: #DCC2FF;
     border-radius: 10px;
     margin: 5px 5px 0px 5px;
-    padding: 10px;
+    padding: 10px 10px 10px 10px;
 }
 
 
@@ -101,4 +101,16 @@
     padding: 3px;
     display: table;
     border-radius: 5px;
+}
+
+#appTitle {
+    font-size: 170%;
+    font-family: Meiryo;
+    font-weight: bold;
+    background: #DCC2FF;
+    display: inline-block;
+}
+
+#addTaskComponents {
+    float: right;
 }

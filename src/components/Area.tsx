@@ -34,34 +34,34 @@ export default class Area extends React.Component<IAreaProps, IAreaState> {
         this.submitNewTask = this.submitNewTask.bind(this);
         this.handleChangePulldown = this.handleChangePulldown.bind(this);
     }
-    
+
 
     // タスク追加フォームのイベント
     public onInputAddTaskChange = (
         e: React.FormEvent<HTMLInputElement>
-      ): void => {
+    ): void => {
         this.setState({
-          inputAddTask: e.currentTarget.value
+            inputAddTask: e.currentTarget.value
         });
-      }; 
+    };
 
     // プルダウンのイベント
     public handleChangePulldown(event: React.ChangeEvent<HTMLSelectElement>) {
-      this.setState({
+        this.setState({
             selectedArea: parseInt(event.target.value, 10)
-      });
+        });
     }
 
     // タスク追加ボタンのイベント
-    public submitNewTask(){
-        if(this.state.inputAddTask === '') {
+    public submitNewTask() {
+        if (this.state.inputAddTask === '') {
             return;
         }
         const createAddtaskObject: IOneTask = {
             name: this.state.inputAddTask,
             area: this.state.selectedArea,
             progress: 0
-        } 
+        }
         this.props.addNewTask(createAddtaskObject);
         this.setState({
             inputAddTask: ''
@@ -69,67 +69,91 @@ export default class Area extends React.Component<IAreaProps, IAreaState> {
     }
 
     // 保存エリアを指定するためのプルダウン
-    public selectAreaPulldown() {
-        return (
-            <form key='selectAreaPulldown'>
-                <select key="allAreaName" onChange={this.handleChangePulldown}>
-                    {areaNames.map((areaName: string, index: number) => 
-                        <option key={areaName} value={index}>
-                            {areaName}
-                        </option>
-                    )}
-                </select>
-            </form>
-        )
+    // public selectAreaPulldown() {
+    //     return (
+    //             <select key="allAreaName" onChange={this.handleChangePulldown}>
+    //                 {areaNames.map((areaName: string, index: number) =>
+    //                     <option key={areaName} value={index}>
+    //                         {areaName}
+    //                     </option>
+    //                 )}
+    //             </select>
+    //     )
+    // }
+
+    public selectAreaRatio() {
+      return(  
+        <div key='selectAreaRatio'>
+        <input key='0' type="radio" name="area" value="0" checked={this.state.selectedArea === 0}
+            onChange={() => this.setState({selectedArea: 0})} />
+            ☀
+            &nbsp;
+        <input key='1' type="radio" name="area" value="1" 
+            onChange={() => this.setState({selectedArea: 1})} />
+            🌈
+            &nbsp;
+        <input key='2' type="radio" name="area" value="2" 
+            onChange={() => this.setState({selectedArea: 2})} />
+            ☁
+            &nbsp;
+        <input key='3' type="radio" name="area" value="3" 
+            onChange={() => this.setState({selectedArea: 3})} />
+            ☔　
+        </div>
+      )
     }
 
     public render() {
-        return(
+        return (
             <div id="areaContainer">
                 <div id="addTaskArea">
-                    <input 
-                    type="text"
-                    value={this.state.inputAddTask}
-                    onChange={this.onInputAddTaskChange}
-                    />
-                    {this.selectAreaPulldown()}
-                    <button onClick={this.submitNewTask}>追加</button>
+                    <div id="appTitle">Urgent Important Matrix</div>
+                    <br />
+                    <div id='addTaskComponents'>
+                        <input
+                            type="text"
+                            value={this.state.inputAddTask}
+                            onChange={this.onInputAddTaskChange}
+                        />
+                        <button onClick={this.submitNewTask}>+</button>
+                        {this.selectAreaRatio()}
+                    </div>
                 </div>
                 <div id="area0">
-                   <div id="title" onClick={() => this.props.toProgress(0)}>{areaNames[0]}</div> 
-                    { this.props.allTasks.area0Tasks.length !== null &&
+                    <div id="title" onClick={() => this.props.toProgress(0)}>{areaNames[0]}</div>
+                    {this.props.allTasks.area0Tasks.length !== null &&
                         this.props.allTasks.area0Tasks.map((task: IOneTask, index: number) => {
-                       return <div key={task.name} id={progressLayout[task.progress]}>
-                                {task.name} <span key={`dast${task.name}`} onClick={() =>this.props.deleteTask(0, index)}>🗑️</span>
-                              </div>
-                    })  }
+                            return <div key={task.name} id={progressLayout[task.progress]}>
+                                {task.name} <span key={`dast${task.name}`} onClick={() => this.props.deleteTask(0, index)}>🗑️</span>
+                            </div>
+                        })}
                 </div>
                 <div id="area1">
-                <div id="title" onClick={() => this.props.toProgress(1)}>{areaNames[1]}</div> 
-                    { this.props.allTasks.area1Tasks.length !== null &&
+                    <div id="title" onClick={() => this.props.toProgress(1)}>{areaNames[1]}</div>
+                    {this.props.allTasks.area1Tasks.length !== null &&
                         this.props.allTasks.area1Tasks.map((task: IOneTask, index: number) => {
                             return <div key={task.name} id={progressLayout[task.progress]}>
-                            {task.name} <span key={`dast${task.name}`} onClick={() =>this.props.deleteTask(1, index)}>🗑️</span>
-                          </div>
-                    })  }
+                                {task.name} <span key={`dast${task.name}`} onClick={() => this.props.deleteTask(1, index)}>🗑️</span>
+                            </div>
+                        })}
                 </div>
                 <div id="area2">
-                <div id="title" onClick={() => this.props.toProgress(2)}>{areaNames[2]}</div> 
-                    { this.props.allTasks.area2Tasks.length !== null &&
+                    <div id="title" onClick={() => this.props.toProgress(2)}>{areaNames[2]}</div>
+                    {this.props.allTasks.area2Tasks.length !== null &&
                         this.props.allTasks.area2Tasks.map((task: IOneTask, index: number) => {
                             return <div key={task.name} id={progressLayout[task.progress]}>
-                            {task.name} <span key={`dast${task.name}`} onClick={() =>this.props.deleteTask(2, index)}>🗑️</span>
-                          </div>
-                    })  }
+                                {task.name} <span key={`dast${task.name}`} onClick={() => this.props.deleteTask(2, index)}>🗑️</span>
+                            </div>
+                        })}
                 </div>
                 <div id="area3">
-                <div id="title" onClick={() => this.props.toProgress(3)}>{areaNames[3]}</div> 
-                    { this.props.allTasks.area3Tasks.length !== null &&
+                    <div id="title" onClick={() => this.props.toProgress(3)}>{areaNames[3]}</div>
+                    {this.props.allTasks.area3Tasks.length !== null &&
                         this.props.allTasks.area3Tasks.map((task: IOneTask, index: number) => {
                             return <div key={task.name} id={progressLayout[task.progress]}>
-                            {task.name} <span key={`dast${task.name}`} onClick={() =>this.props.deleteTask(3, index)}>🗑️</span>
-                          </div>
-                    })  }
+                                {task.name} <span key={`dast${task.name}`} onClick={() => this.props.deleteTask(3, index)}>🗑️</span>
+                            </div>
+                        })}
                 </div>
             </div>
         )
