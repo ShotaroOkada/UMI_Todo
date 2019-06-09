@@ -1,0 +1,39 @@
+#progressContainer {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 1fr 4fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "areaName areaName areaName areaName areaName"
+        "idea     planning donePlan doing    done";
+}
+
+#areaName {
+    grid-area: areaName;
+    background: rebeccapurple
+}
+
+#idea {
+    grid-area: idea;
+    background: blue
+}
+
+#planning {
+    grid-area: planning;
+    background: yellow
+}
+
+#donePlan {
+    grid-area: donePlan;
+    background: green
+}
+
+#doing {
+    grid-area: doing;
+    background: red
+}
+
+#done {
+    grid-area: done;
+    background: aqua
+}

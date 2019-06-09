@@ -8,6 +8,7 @@ export interface IAddTaskAction {
 
 export interface IDeleteTaskAction {
     type :ChangeTaskQuantityActionType.TASK_DELETE;
+    area: number;
     taskId: number;
 }
 

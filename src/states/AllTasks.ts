@@ -1,7 +1,7 @@
 import IOneTask from './oneTask';
 
 export default interface IAllTasks {
-        addTasks: IOneTask[],
+        addTask: IOneTask,
         area0Tasks: IOneTask[],
         area1Tasks: IOneTask[],
         area2Tasks: IOneTask[],

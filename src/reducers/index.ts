@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import allTasks from './AllTasks';
+import display from './Display'
 
 const rootReducer = combineReducers({
-    allTasks
+    allTasks,
+    display
 })
 
 export default rootReducer;

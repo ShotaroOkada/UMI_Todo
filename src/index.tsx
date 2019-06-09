@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
-import Area from './containers/Area';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxLogger from 'redux-logger';
 import rootReducer from './reducers';
 import { Provider } from 'react-redux';
+import App from './containers/App';
 
 const store = createStore(
   rootReducer,
@@ -14,7 +14,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Area />
+    <App />
   </Provider>,  
   document.getElementById('root') as HTMLElement
 );

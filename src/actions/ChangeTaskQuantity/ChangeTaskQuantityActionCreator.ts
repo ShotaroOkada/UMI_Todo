@@ -9,9 +9,10 @@ export function addNewTask(addTask: IOneTask): IAddTaskAction {
     }
 }
 
-export function deleteTask(taskId: number): IDeleteTaskAction {
+export function deleteTask(area: number, taskId: number): IDeleteTaskAction {
     return {
         type: ChangeTaskQuantityActionType.TASK_DELETE,
+        area,
         taskId
     }
 }

@@ -1,7 +1,6 @@
-#container {
+#areaContainer {
     display: grid;
     height: 100%;
-    /* grid-template-rows: 100px 235px 235px; */
     grid-template-rows: 1fr 2fr 2fr;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
