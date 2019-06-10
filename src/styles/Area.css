@@ -25,6 +25,8 @@
     border-radius: 10px;
     margin: 5px 0px 0px 5px;
     padding: 10px;
+    font-family: Mairyo;
+    font-weight: bold;
 }
 
 #area1 {
@@ -34,6 +36,8 @@
     border-radius: 10px;
     margin: 5px 5px 0px 5px;
     padding: 10px;
+    font-family: Mairyo;
+    font-weight: bold;
 }
 
 #area2 {
@@ -43,6 +47,8 @@
     border-radius: 10px;
     margin: 5px 0px 5px 5px;
     padding: 10px;
+    font-family: Mairyo;
+    font-weight: bold;
 }
 
 #area3 {
@@ -52,6 +58,8 @@
     border-radius: 10px;
     margin: 5px;
     padding: 10px;
+    font-family: Mairyo;
+    font-weight: bold;
 }
 
 #progress0Task {
