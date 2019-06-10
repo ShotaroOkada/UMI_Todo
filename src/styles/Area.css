@@ -59,7 +59,7 @@
     background: #FF82B2;
     border-radius: 10px;
     padding: 2px 2px 0px 5px;
-    margin: 3px;
+    margin: 10px 0 0 10px;
 }
 
 #progress1Task {
@@ -67,7 +67,7 @@
     background: #FFAD90;
     border-radius: 10px;
     padding: 2px 2px 0px 5px;
-    margin: 3px;
+    margin: 10px 0 0 10px;
 }
 
 #progress2Task {
@@ -75,7 +75,7 @@
     background: #FFFF99;
     border-radius: 10px;
     padding: 2px 2px 0px 5px;
-    margin: 3px;
+    margin: 10px 0 0 10px;
 }
 
 #progress3Task {
@@ -83,7 +83,7 @@
     background: #93FFAB;
     border-radius: 10px;
     padding: 2px 2px 0px 5px;
-    margin: 3px;
+    margin: 10px 0 0 10px;
 }
 
 #progress4Task {
@@ -91,7 +91,7 @@
     background: #99FFFF;
     border-radius: 10px;
     padding: 2px 2px 0px 5px;
-    margin: 3px;
+    margin: 10px 0 0 10px;
 }
 
 #title {

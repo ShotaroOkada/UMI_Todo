@@ -5,24 +5,8 @@ import IOneTask from 'src/states/oneTask';
 import update from 'immutability-helper';
 import ChangeProgressActionType from 'src/actions/ChangeProgress/ChangeProgressActionType';
 import ChangeProgressAction from 'src/actions/ChangeProgress/ChangeProgressAction';
-
-const initialState: IAllTasks = {
-    addTask: {
-        name: '',
-        area: 0,
-        progress: 0 
-    },
-    area0Tasks: [
-        {name: 'a', progress: 0, area:0},
-        {name: 'b', progress: 0, area:0},
-        {name: 'c', progress: 0, area:0},
-        {name: 'd', progress: 0, area:0},
-        {name: 'e', progress: 0, area:0},
-    ],
-    area1Tasks: [],
-    area2Tasks: [],
-    area3Tasks: []
-}
+          import {  initialState } from 'src/states/initialState';
+const demoInitial = initialState
 
 type AllTasksAction = ChangeTaskQuantityAction 
 
@@ -200,7 +184,7 @@ function backProgress(state: IAllTasks, area: number, taskId: number) {
 
 }
 
-export default function allTasks(state: IAllTasks = initialState, action: AllTasksAction | ChangeProgressAction): IAllTasks {
+export default function allTasks(state: IAllTasks = demoInitial, action: AllTasksAction | ChangeProgressAction): IAllTasks {
     switch (action.type) {
         case ChangeTaskQuantityActionType.TASK_ADD:
             return {
