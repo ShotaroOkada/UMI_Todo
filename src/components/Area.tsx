@@ -68,37 +68,22 @@ export default class Area extends React.Component<IAreaProps, IAreaState> {
         })
     }
 
-    // 保存エリアを指定するためのプルダウン
-    // public selectAreaPulldown() {
-    //     return (
-    //             <select key="allAreaName" onChange={this.handleChangePulldown}>
-    //                 {areaNames.map((areaName: string, index: number) =>
-    //                     <option key={areaName} value={index}>
-    //                         {areaName}
-    //                     </option>
-    //                 )}
-    //             </select>
-    //     )
-    // }
-
+    // タスクを配置するエリアを選択するためのラジオボタン
     public selectAreaRatio() {
-      return(  
+      const areaIcons: string[] = ['☀', '🌈', '☁', '☔']
+      return (
         <div key='selectAreaRatio'>
-        <input key='0' type="radio" name="area" value="0" checked={this.state.selectedArea === 0}
-            onChange={() => this.setState({selectedArea: 0})} />
-            ☀
-            &nbsp;
-        <input key='1' type="radio" name="area" value="1" 
-            onChange={() => this.setState({selectedArea: 1})} />
-            🌈
-            &nbsp;
-        <input key='2' type="radio" name="area" value="2" 
-            onChange={() => this.setState({selectedArea: 2})} />
-            ☁
-            &nbsp;
-        <input key='3' type="radio" name="area" value="3" 
-            onChange={() => this.setState({selectedArea: 3})} />
-            ☔　
+          {
+            areaIcons.map((areaIcon, index: number) => {
+              return(<span key={index}>  
+                  <input key={index} type="radio" name="area" value={index} checked={this.state.selectedArea === index}
+                onChange={() => this.setState({selectedArea: index})} />
+                 {areaIcon} 
+                 &nbsp;
+                 </span>
+              )
+            })
+          }
         </div>
       )
     }
