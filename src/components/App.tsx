@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
-import Area from 'src/containers/Area';
-import Progress from 'src/containers/Progress';
+import Area from 'src/components/Area';
+import Progress from 'src/components/Progress';
 import IState from 'src/states';
 
 
