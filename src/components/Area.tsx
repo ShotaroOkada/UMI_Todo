@@ -15,46 +15,48 @@ export default function Area() {
     const [inputAddTask, setInputaddTask] = useState('');
     const [selectedArea, setSelectedArea] = useState(0);
     const allTasks = useSelector((state: IState) => state.allTasks)
-
+    const areaTasks = [allTasks.area0Tasks, allTasks.area1Tasks, allTasks.area2Tasks, allTasks.area3Tasks]
+    
     // タスク追加フォームのイベント
     function onInputAddTaskChange(event: React.FormEvent<HTMLInputElement>) {
         setInputaddTask(event.currentTarget.value);
     };
 
-// タスク追加ボタンのイベント
-function submitNewTask() {
-    if (inputAddTask === '') {
-        return;
+    // タスク追加ボタンのイベント
+    function submitNewTask() {
+        if (inputAddTask === '') {
+            return;
+        }
+        const createAddtaskObject: IOneTask = {
+            name: inputAddTask,
+            area: selectedArea,
+            progress: 0
+        }
+        dispatch(addNewTask(createAddtaskObject));
+        setInputaddTask('');
     }
-    const createAddtaskObject: IOneTask = {
-        name: inputAddTask,
-        area: selectedArea,
-        progress: 0
-    }
-    dispatch(addNewTask(createAddtaskObject));
-    setInputaddTask('');
-}
 
-// タスクを配置するエリアを選択するためのラジオボタン 
-function selectAreaRatio() {
-    const areaIcons: string[] = ['☀', '🌈', '☁', '☔']
-    return (
-        <div key='selectAreaRatio'>
-            {
-                areaIcons.map((areaIcon, index: number) => {
-                    return (<span key={index}>
-                        <input key={index} type="radio" name="area" value={index} checked={selectedArea === index}
-                            onChange={() => setSelectedArea(index)} />
-                        {areaIcon}
-                        &nbsp;
-                 </span>
-                    )
-                })
-            }
-        </div>
-    )
-}
-    
+    // タスクを配置するエリアを選択するためのラジオボタン 
+    function selectAreaRatio() {
+        const areaIcons: string[] = ['☀', '🌈', '☁', '☔']
+        return (
+            <div key='selectAreaRatio'>
+                {
+                    areaIcons.map((areaIcon, index: number) => {
+                        return (
+                          <span key={index}>
+                            <input key={index} type="radio" name="area" value={index} checked={selectedArea === index}
+                                onChange={() => setSelectedArea(index)} />
+                            {areaIcon}
+                            &nbsp;
+                          </span>
+                        )
+                    })
+                }
+            </div>
+        )
+    }
+
     return (
         <div id="areaContainer">
             <div id="addTaskArea">
@@ -64,48 +66,26 @@ function selectAreaRatio() {
                     <input
                         type="text"
                         value={inputAddTask}
-                        onChange={ onInputAddTaskChange }
+                        onChange={onInputAddTaskChange}
                     />
                     <button onClick={submitNewTask}>+</button>
                     {selectAreaRatio()}
                 </div>
             </div>
-            <div id="area0">
-                <div id="title" onClick={() => dispatch(toProgress(0))}>{areaNames[0]}</div>
-                {allTasks.area0Tasks.length !== null &&
-                    allTasks.area0Tasks.map((task: IOneTask, index: number) => {
-                        return <div key={task.name} id={progressLayout[task.progress]}>
-                            {task.name} <span key={`dast${task.name}`} onClick={() => dispatch(deleteTask(0, index))}>🗑️</span>
-                        </div>
-                    })}
-            </div>
-            <div id="area1">
-                <div id="title" onClick={() => dispatch(toProgress(1))}>{areaNames[1]}</div>
-                {allTasks.area1Tasks.length !== null &&
-                    allTasks.area1Tasks.map((task: IOneTask, index: number) => {
-                        return <div key={task.name} id={progressLayout[task.progress]}>
-                            {task.name} <span key={`dast${task.name}`} onClick={() => dispatch(deleteTask(1, index))}>🗑️</span>
-                        </div>
-                    })}
-            </div>
-            <div id="area2">
-                <div id="title" onClick={() => dispatch(toProgress(2))}>{areaNames[2]}</div>
-                {allTasks.area2Tasks.length !== null &&
-                    allTasks.area2Tasks.map((task: IOneTask, index: number) => {
-                        return <div key={task.name} id={progressLayout[task.progress]}>
-                            {task.name} <span key={`dast${task.name}`} onClick={() => dispatch(deleteTask(2, index))}>🗑️</span>
-                        </div>
-                    })}
-            </div>
-            <div id="area3">
-                <div id="title" onClick={() => dispatch(toProgress(3))}>{areaNames[3]}</div>
-                {allTasks.area3Tasks.length !== null &&
-                    allTasks.area3Tasks.map((task: IOneTask, index: number) => {
-                        return <div key={task.name} id={progressLayout[task.progress]}>
-                            {task.name} <span key={`dast${task.name}`} onClick={() => dispatch(deleteTask(3, index))}>🗑️</span>
-                        </div>
-                    })}
-            </div>
+            {areaTasks.map((areaTask, areaIndex) => {
+                return (
+                    <div id={`area${areaIndex}`} key={`area${areaIndex}`}>
+                        <div id="title" onClick={() => dispatch(toProgress(areaIndex))}>{areaNames[areaIndex]}</div>
+                        {areaTask.length !== null &&
+                            areaTask.map((task, taskIndex) => {
+                                return <div key={task.name} id={progressLayout[task.progress]}>
+                                    {task.name} <span key={`dast${task.name}`} onClick={() => dispatch(deleteTask(areaIndex, taskIndex))}>🗑️</span>
+                                </div>
+                            })
+                        }
+                    </div>
+                )
+            })}
         </div>
     )
 }
