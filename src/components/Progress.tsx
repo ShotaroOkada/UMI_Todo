@@ -28,16 +28,19 @@ function returnNowAreaTasks(): IOneTask[] {
 export default function Progress() {
   const whereArea = useSelector((state: IState) => state.display.whereArea);
   const dispatch = useDispatch();
+  const dispatchToArea = () => dispatch(toArea())
+  const dispatchAdvenceProgress0 = (index: number) => dispatch(advanceProgress(whereArea, index))
   return (
     <div id="progressContainer">
-      <div id={progressTitlelayout[whereArea]} onClick={() => dispatch(toArea())} />
+      <div id={progressTitlelayout[whereArea]} onClick={dispatchToArea} />
       <div id="idea">
         idea
           {returnNowAreaTasks().map((task: IOneTask, index: number) => {
           if (task.progress === 0) {
+            const dispatchAdvenceProgress = () => dispatchAdvenceProgress0(index)
             return <div key={index} id="taskLayout">
               {task.name}
-              <span onClick={() => dispatch(advanceProgress(whereArea, index))}>▶</span>
+              <span onClick={dispatchAdvenceProgress}>▶</span>
             </div>
           } else {
             return

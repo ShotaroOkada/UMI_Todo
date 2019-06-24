@@ -10,13 +10,18 @@ import IState from 'src/states';
 
 const { useState } = React;
 
+function hoge(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+    event.stopPropagation();
+}
+
+
 export default function Area() {
     const dispatch = useDispatch();
     const [inputAddTask, setInputaddTask] = useState('');
     const [selectedArea, setSelectedArea] = useState(0);
     const allTasks = useSelector((state: IState) => state.allTasks)
     const areaTasks = [allTasks.area0Tasks, allTasks.area1Tasks, allTasks.area2Tasks, allTasks.area3Tasks]
-    
+
     // タスク追加フォームのイベント
     function onInputAddTaskChange(event: React.FormEvent<HTMLInputElement>) {
         setInputaddTask(event.currentTarget.value);
@@ -43,10 +48,11 @@ export default function Area() {
             <div key='selectAreaRatio'>
                 {
                     areaIcons.map((areaIcon, index: number) => {
+                        const setSelectedAreaCall = () => setSelectedArea(index);
                         return (
                           <span key={index}>
                             <input key={index} type="radio" name="area" value={index} checked={selectedArea === index}
-                                onChange={() => setSelectedArea(index)} />
+                                onChange={setSelectedAreaCall} />
                             {areaIcon}
                             &nbsp;
                           </span>
@@ -73,13 +79,16 @@ export default function Area() {
                 </div>
             </div>
             {areaTasks.map((areaTask, areaIndex) => {
+                const dispatchToProgress = () => dispatch(toProgress(areaIndex));
+                const dispatchDeleteTask0 = (taskIndex: number) => dispatch(deleteTask(areaIndex, taskIndex))
                 return (
-                    <div id={`area${areaIndex}`} key={`area${areaIndex}`}>
-                        <div id="title" onClick={() => dispatch(toProgress(areaIndex))}>{areaNames[areaIndex]}</div>
+                    <div id={`area${areaIndex}`} key={`area${areaIndex}`} onClick={dispatchToProgress}>
+                        <div id="title">{areaNames[areaIndex]}</div>
                         {areaTask.length !== null &&
                             areaTask.map((task, taskIndex) => {
-                                return <div key={task.name} id={progressLayout[task.progress]}>
-                                    {task.name} <span key={`dast${task.name}`} onClick={() => dispatch(deleteTask(areaIndex, taskIndex))}>🗑️</span>
+                                const dispatchDeleteTask = () => dispatchDeleteTask0(taskIndex)
+                                return <div key={task.name} id={progressLayout[task.progress]} onClick={hoge}>
+                                    {task.name} <span key={`dast${task.name}`} onClick={dispatchDeleteTask}>🗑️</span>
                                 </div>
                             })
                         }
