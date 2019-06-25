@@ -10,7 +10,7 @@ import IState from 'src/states';
 
 const { useState } = React;
 
-function hoge(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+function dummy(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     event.stopPropagation();
 }
 
@@ -87,7 +87,7 @@ export default function Area() {
                         {areaTask.length !== null &&
                             areaTask.map((task, taskIndex) => {
                                 const dispatchDeleteTask = () => dispatchDeleteTask0(taskIndex)
-                                return <div key={task.name} id={progressLayout[task.progress]} onClick={hoge}>
+                                return <div key={task.name} id={progressLayout[task.progress]} onClick={dummy}>
                                     {task.name} <span key={`dast${task.name}`} onClick={dispatchDeleteTask}>🗑️</span>
                                 </div>
                             })
