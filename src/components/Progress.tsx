@@ -6,22 +6,23 @@ import { useSelector, useDispatch } from 'react-redux';
 import IState from 'src/states';
 import { toArea } from 'src/actions/ChangeDisplay/ChangeDisplayActionCreator';
 import { advanceProgress, backProgress } from 'src/actions/ChangeProgress/ChangeProgressActionCreator';
+import { progressNames } from 'src/states/progressName';
 
 function returnNowAreaTasks(): IOneTask[] {
   const whereArea = useSelector((state: IState) => state.display.whereArea);
   const allTasks = useSelector((state: IState) => state.allTasks);
-    switch (whereArea) {
-      case 0:
-        return allTasks.area0Tasks
-      case 1:
-        return allTasks.area1Tasks
-      case 2:
-        return allTasks.area2Tasks
-      case 3:
-        return allTasks.area3Tasks
-      default:
-        return []
-    }
+  switch (whereArea) {
+    case 0:
+      return allTasks.area0Tasks
+    case 1:
+      return allTasks.area1Tasks
+    case 2:
+      return allTasks.area2Tasks
+    case 3:
+      return allTasks.area3Tasks
+    default:
+      return []
+  }
 }
 
 
@@ -32,82 +33,28 @@ export default function Progress() {
   return (
     <div id="progressContainer">
       <div id={progressTitlelayout[whereArea]} onClick={dispatchToArea} />
-      <div id="idea">
-        idea
-          {returnNowAreaTasks().map((task: IOneTask, index: number) => {
-            const dispatchAdvenceProgress = () => dispatch(advanceProgress(whereArea, index))
-          if (task.progress === 0) {
-            return <div key={index} id="taskLayout">
-              {task.name}
-              <span onClick={dispatchAdvenceProgress}>▶</span>
-            </div>
-          } else {
-            return
-          }
-        })}
-      </div>
-      <div id="planning">
-        planning
-          {returnNowAreaTasks().map((task: IOneTask, index: number) => {
-          const dispatchBackProgress = () => dispatch(backProgress(whereArea, index));
-          const dispatchAdvenceProgress = () => dispatch(advanceProgress(whereArea, index));
-          if (task.progress === 1) {
-            return <div key={index} id="taskLayout">
-              <span onClick={dispatchBackProgress}>◀</span>
-              {task.name}
-              <span onClick={dispatchAdvenceProgress}>▶</span>
-            </div>
-          } else {
-            return
-          }
-        })}
-      </div>
-      <div id="donePlan">
-        planDone
-          {returnNowAreaTasks().map((task: IOneTask, index: number) => {
-            const dispatchBackProgress = () => dispatch(backProgress(whereArea, index));
-            const dispatchAdvenceProgress = () => dispatch(advanceProgress(whereArea, index))
-          if (task.progress === 2) {
-            return <div key={index} id="taskLayout">
-              <span onClick={dispatchBackProgress}>◀</span>
-              {task.name}
-              <span onClick={dispatchAdvenceProgress}>▶</span>
-            </div>
-          } else {
-            return
-          }
-        })}
-      </div>
-      <div id="doing">
-        doing
-          {returnNowAreaTasks().map((task: IOneTask, index: number) => {
-            const dispatchBackProgress = () => dispatch(backProgress(whereArea, index));
-            const dispatchAdvenceProgress = () => dispatch(advanceProgress(whereArea, index))
-          if (task.progress === 3) {
-            return <div key={index} id="taskLayout">
-              <span onClick={dispatchBackProgress}>◀</span>
-              {task.name}
-              <span onClick={dispatchAdvenceProgress}>▶</span>
-            </div>
-          } else {
-            return
-          }
-        })}
-      </div>
-      <div id="done">
-        done
-          {returnNowAreaTasks().map((task: IOneTask, index: number) => {
-            const dispatchBackProgress = () => dispatch(backProgress(whereArea, index));
-          if (task.progress === 4) {
-            return <div key={index} id="taskLayout">
-              <span onClick={dispatchBackProgress}>◀</span>
-              {task.name}
-            </div>
-          } else {
-            return
-          }
-        })}
-      </div>
+      {progressNames.map((progressName, progressNameIndex) => {
+        return (
+          <div id={progressName} key={progressName}>
+            {progressName}
+            {returnNowAreaTasks().map((task, taskIndex) => {
+              const dispatchBackProgress = () => dispatch(backProgress(whereArea, taskIndex));
+              const dispatchAdvenceProgress = () => dispatch(advanceProgress(whereArea, taskIndex));
+              if (task.progress === progressNameIndex) {
+                return (
+                  <div key={progressNameIndex} id="taskLayout">
+                    {task.progress !== 0 && <span onClick={dispatchBackProgress}>◀</span>}
+                    {task.name}
+                    {task.progress !== (progressNames.length -1) && <span onClick={dispatchAdvenceProgress}>▶</span>}
+                  </div>
+                )
+              } else {
+                return 
+              }
+            })}
+          </div>
+        )
+      })}
     </div>
   )
 };

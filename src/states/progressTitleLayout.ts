@@ -1,4 +1,4 @@
-export const progressTitlelayout: string[] = [
+export const progressTitlelayout = [
     'area0title',
     'area1title',
     'area2title',
