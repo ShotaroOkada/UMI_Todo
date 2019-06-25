@@ -102,13 +102,14 @@
     margin: 10px 0 0 10px;
 }
 
-#title {
+#areaName {
     font-weight: bold;
     font-family: Meiryo;
     background: white;
     padding: 3px;
     display: table;
     border-radius: 5px;
+    cursor : pointer;
 }
 
 #appTitle {

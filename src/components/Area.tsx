@@ -1,5 +1,6 @@
 import * as React from 'react'
 import '../styles/Area.css'
+import '../styles/index.css'
 import IOneTask from 'src/states/oneTask';
 import { areaNames } from 'src/states/AreaName';
 import { progressLayout } from 'src/states/progressLayout';
@@ -43,7 +44,7 @@ export default function Area() {
 
     // タスクを配置するエリアを選択するためのラジオボタン 
     function selectAreaRatio() {
-        const areaIcons: string[] = ['☀', '🌈', '☁', '☔']
+        const areaIcons = ['☀', '🌈', '☁', '☔']
         return (
             <div key='selectAreaRatio'>
                 {
@@ -51,9 +52,9 @@ export default function Area() {
                         const setSelectedAreaCall = () => setSelectedArea(index);
                         return (
                           <span key={index}>
-                            <input key={index} type="radio" name="area" value={index} checked={selectedArea === index}
+                            <input id="mouseYubi" key={index} type="radio" name="area" value={index} checked={selectedArea === index}
                                 onChange={setSelectedAreaCall} />
-                            {areaIcon}
+                            <span id="mouseYubi" onClick={setSelectedAreaCall}>{areaIcon}</span>
                             &nbsp;
                           </span>
                         )
@@ -74,7 +75,7 @@ export default function Area() {
                         value={inputAddTask}
                         onChange={onInputAddTaskChange}
                     />
-                    <button onClick={submitNewTask}>+</button>
+                    <button id="mouseYubi" onClick={submitNewTask}>+</button>
                     {selectAreaRatio()}
                 </div>
             </div>
@@ -83,7 +84,7 @@ export default function Area() {
                 const dispatchDeleteTask0 = (taskIndex: number) => dispatch(deleteTask(areaIndex, taskIndex))
                 return (
                     <div id={`area${areaIndex}`} key={`area${areaIndex}`} onClick={dispatchToProgress}>
-                        <div id="title">{areaNames[areaIndex]}</div>
+                        <div id="areaName">{areaNames[areaIndex]}</div>
                         {areaTask.length !== null &&
                             areaTask.map((task, taskIndex) => {
                                 const dispatchDeleteTask = () => dispatchDeleteTask0(taskIndex)
