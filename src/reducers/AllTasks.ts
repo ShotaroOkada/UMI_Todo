@@ -5,10 +5,16 @@ import IOneTask from 'src/states/oneTask';
 import update from 'immutability-helper';
 import ChangeProgressActionType from 'src/actions/ChangeProgress/ChangeProgressActionType';
 import ChangeProgressAction from 'src/actions/ChangeProgress/ChangeProgressAction';
-          import {  initialState } from 'src/states/initialState';
-const demoInitial = initialState
+import {  initialState } from 'src/states/initialState';
 
-type AllTasksAction = ChangeTaskQuantityAction 
+const getAllTasksToLocalStorage = localStorage.getItem('allTasks');
+const InitialState: IAllTasks = getAllTasksToLocalStorage ? JSON.parse(getAllTasksToLocalStorage) : initialState;
+
+type AllTasksAction = ChangeTaskQuantityAction | ChangeProgressAction
+
+function setAllTasksToLocalStrage(state: IAllTasks) {
+    localStorage.setItem('allTasks', JSON.stringify(state))
+}
 
 function addNewTasks(state: IAllTasks, addTask: IOneTask): IAllTasks {
     switch (addTask.area) {
@@ -41,6 +47,7 @@ function addNewTasks(state: IAllTasks, addTask: IOneTask): IAllTasks {
         });
         break; 
     }
+    setAllTasksToLocalStrage(state);
     return state;
 }
 
@@ -75,6 +82,7 @@ function deleteTask(state: IAllTasks, area: number, taskId: number) {
             })
             break;
     }
+    setAllTasksToLocalStrage(state);
     return state;
 }
 
@@ -91,7 +99,7 @@ function advenceProgress(state: IAllTasks, area: number, taskId: number) {
             state = update(state, {
                 area0Tasks: { $set: areaTasks }
             })
-            return state
+            break;
         case 1:
             areaTasks = state.area1Tasks;
             areaTasks.forEach((task: IOneTask, index: number) => {
@@ -102,7 +110,7 @@ function advenceProgress(state: IAllTasks, area: number, taskId: number) {
             state = update(state, {
                 area1Tasks: { $set: areaTasks }
             })
-            return state
+            break;
         case 2:
             areaTasks = state.area2Tasks;
             areaTasks.forEach((task: IOneTask, index: number) => {
@@ -113,7 +121,7 @@ function advenceProgress(state: IAllTasks, area: number, taskId: number) {
             state = update(state, {
                 area2Tasks: { $set: areaTasks }
             })
-            return state
+            break;
         case 3:
             areaTasks = state.area3Tasks;
             areaTasks.forEach((task: IOneTask, index: number) => {
@@ -124,11 +132,12 @@ function advenceProgress(state: IAllTasks, area: number, taskId: number) {
             state = update(state, {
                 area3Tasks: { $set: areaTasks }
             })
-            return state
+            break;
         default:
             return state;
     }
-
+    setAllTasksToLocalStrage(state);
+    return state;
 }
 
 function backProgress(state: IAllTasks, area: number, taskId: number) {
@@ -144,7 +153,7 @@ function backProgress(state: IAllTasks, area: number, taskId: number) {
             state = update(state, {
                 area0Tasks: { $set: areaTasks }
             })
-            return state
+            break;
         case 1:
             areaTasks = state.area1Tasks;
             areaTasks.forEach((task: IOneTask, index: number) => {
@@ -155,7 +164,7 @@ function backProgress(state: IAllTasks, area: number, taskId: number) {
             state = update(state, {
                 area1Tasks: { $set: areaTasks }
             })
-            return state
+            break;
         case 2:
             areaTasks = state.area2Tasks;
             areaTasks.forEach((task: IOneTask, index: number) => {
@@ -166,7 +175,7 @@ function backProgress(state: IAllTasks, area: number, taskId: number) {
             state = update(state, {
                 area2Tasks: { $set: areaTasks }
             })
-            return state
+            break;
         case 3:
             areaTasks = state.area3Tasks;
             areaTasks.forEach((task: IOneTask, index: number) => {
@@ -177,14 +186,15 @@ function backProgress(state: IAllTasks, area: number, taskId: number) {
             state = update(state, {
                 area3Tasks: { $set: areaTasks }
             })
-            return state
+            break;
         default:
             return state;
     }
-
+    setAllTasksToLocalStrage(state);
+    return state;
 }
 
-export default function allTasks(state: IAllTasks = demoInitial, action: AllTasksAction | ChangeProgressAction): IAllTasks {
+export default function allTasks(state: IAllTasks = InitialState, action: AllTasksAction): IAllTasks {
     switch (action.type) {
         case ChangeTaskQuantityActionType.TASK_ADD:
             return {

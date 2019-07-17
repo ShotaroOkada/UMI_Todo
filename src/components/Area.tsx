@@ -11,6 +11,7 @@ import IState from 'src/states';
 
 const { useState } = React;
 
+// 親のイベントハンドラを受け付けないようにする
 function dummy(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     event.stopPropagation();
 }
