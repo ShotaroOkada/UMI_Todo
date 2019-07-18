@@ -25,7 +25,6 @@ function returnNowAreaTasks(): IOneTask[] {
   }
 }
 
-
 export default function Progress() {
   const whereArea = useSelector((state: IState) => state.display.whereArea);
   const dispatch = useDispatch();
@@ -37,14 +36,16 @@ export default function Progress() {
         return (
           <div id={progressName} key={progressName}>
             {progressName}
+            {/* ここで読んでる関数が更新されなくて意図した挙動になってなさそう */}
             {returnNowAreaTasks().map((task, taskIndex) => {
               const dispatchBackProgress = () => dispatch(backProgress(whereArea, taskIndex));
               const dispatchAdvenceProgress = () => dispatch(advanceProgress(whereArea, taskIndex));
               if (task.progress === progressNameIndex) {
                 return (
-                  <div key={progressNameIndex} id="taskLayout">
+                  <div key={task.name} id="taskLayout">
                     {task.progress !== 0 && <span onClick={dispatchBackProgress}>◀</span>}
                     {task.name}
+                    {console.log(`taskIndex→${taskIndex}　taskName→${task.name}　taskProgress→${task.progress}`)}
                     {task.progress !== (progressNames.length -1) && <span onClick={dispatchAdvenceProgress}>▶</span>}
                   </div>
                 )

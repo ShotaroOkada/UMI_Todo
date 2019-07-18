@@ -133,8 +133,6 @@ function advenceProgress(state: IAllTasks, area: number, taskId: number) {
                 area3Tasks: { $set: areaTasks }
             })
             break;
-        default:
-            return state;
     }
     setAllTasksToLocalStrage(state);
     return state;
@@ -187,8 +185,6 @@ function backProgress(state: IAllTasks, area: number, taskId: number) {
                 area3Tasks: { $set: areaTasks }
             })
             break;
-        default:
-            return state;
     }
     setAllTasksToLocalStrage(state);
     return state;
