@@ -18,7 +18,7 @@
   "homepage": "./",
   "main": "src/electron-starter.js",
   "build": {
-    "productName": "try-electron-builder",
+    "productName": "UMI Todo",
     "appId": "try.example.com",
     "files": [
       "./src/electron-starter.js",
