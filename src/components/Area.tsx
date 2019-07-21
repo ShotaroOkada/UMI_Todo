@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addNewTask, deleteTask } from 'src/actions/ChangeTaskQuantity/ChangeTaskQuantityActionCreator';
 import { toProgress } from 'src/actions/ChangeDisplay/ChangeDisplayActionCreator';
 import IState from 'src/states';
+import { progressNames } from 'src/states/progressName';
 
 const { useState } = React;
 
@@ -70,6 +71,17 @@ export default function Area() {
             <div id="addTaskArea">
                 <div id="appTitle">Urgent Important Matrix</div>
                 <br />
+                {progressNames.map((progressName, index) => {
+                  return <span key={progressName} id={'progressInfo'}>
+                            <span id={`progress${index}`}>
+                                 ■
+                            </span>
+                            <span id={'progressName'}>
+                                {progressName}
+                            </span>
+                        </span>
+                        
+                })}
                 <div id='addTaskComponents'>
                     <input
                         type="text"

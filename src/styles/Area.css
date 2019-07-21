@@ -123,3 +123,32 @@
 #addTaskComponents {
     float: right;
 }
+
+#progressInfo {
+    margin: 20px 0 0 0;
+    display: inline-block;
+}
+
+#progressName {
+    margin: 0 10px 0 0;
+}
+
+#progress0 {
+    color: #FF82B2;
+}
+
+#progress1 {
+    color: #FFAD90;
+}
+
+#progress2 {
+    color: #FFFF99;
+}
+
+#progress3 {
+    color: #93FFAB;
+}
+
+#progress4 {
+    color: #99FFFF;
+}
