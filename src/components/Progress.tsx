@@ -43,10 +43,10 @@ export default function Progress() {
               if (task.progress === progressNameIndex) {
                 return (
                   <div key={task.name} id="taskLayout">
-                    {task.progress !== 0 && <span onClick={dispatchBackProgress}>◀</span>}
+                    {task.progress !== 0 && <span id={'arrow'} onClick={dispatchBackProgress}>◀</span>}
                     {task.name}
                     {console.log(`taskIndex→${taskIndex}　taskName→${task.name}　taskProgress→${task.progress}`)}
-                    {task.progress !== (progressNames.length -1) && <span onClick={dispatchAdvenceProgress}>▶</span>}
+                    {task.progress !== (progressNames.length -1) && <span id={'arrow'} onClick={dispatchAdvenceProgress}>▶</span>}
                   </div>
                 )
               } else {

@@ -102,7 +102,7 @@ export default function Area() {
                             areaTask.map((task, taskIndex) => {
                                 const dispatchDeleteTask = () => dispatchDeleteTask0(taskIndex)
                                 return <div key={task.name} id={progressLayout[task.progress]} onClick={dummy}>
-                                    {task.name} <span key={`dast${task.name}`} onClick={dispatchDeleteTask}>🗑️</span>
+                                    {task.name} <span key={`dast${task.name}`} id={'dust'} onClick={dispatchDeleteTask}>🗑️</span>
                                 </div>
                             })
                         }
