@@ -1,5 +1,5 @@
 import ChangeTaskQuantityActionType from './ChangeTaskQuantityActionType';
-import IOneTask from 'src/states/oneTask';
+import { IOneTask } from 'src/states/Task';
 
 export interface IAddTaskAction {
     type: ChangeTaskQuantityActionType.TASK_ADD;

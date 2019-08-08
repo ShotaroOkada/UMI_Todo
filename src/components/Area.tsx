@@ -1,14 +1,13 @@
 import * as React from 'react'
 import '../styles/Area.css'
 import '../styles/index.css'
-import IOneTask from 'src/states/oneTask';
-import { areaNames } from 'src/states/AreaName';
-import { progressLayout } from 'src/states/progressLayout';
 import { useDispatch, useSelector } from 'react-redux';
 import { addNewTask, deleteTask } from 'src/actions/ChangeTaskQuantity/ChangeTaskQuantityActionCreator';
 import { toProgress } from 'src/actions/ChangeDisplay/ChangeDisplayActionCreator';
 import IState from 'src/states';
-import { progressNames } from 'src/states/progressName';
+import { IOneTask } from 'src/states/Task';
+import { progressNames, progressLayout } from 'src/states/Progress';
+import { areaNames } from 'src/states/Area';
 
 const { useState } = React;
 

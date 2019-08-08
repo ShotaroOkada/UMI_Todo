@@ -1,12 +1,11 @@
 import * as React from 'react'
 import '../styles/Progress.css'
-import IOneTask from 'src/states/oneTask';
-import { progressTitlelayout } from 'src/states/progressTitleLayout';
 import { useSelector, useDispatch } from 'react-redux';
 import IState from 'src/states';
 import { toArea } from 'src/actions/ChangeDisplay/ChangeDisplayActionCreator';
 import { advanceProgress, backProgress } from 'src/actions/ChangeProgress/ChangeProgressActionCreator';
-import { progressNames } from 'src/states/progressName';
+import { progressTitlelayout, progressNames } from 'src/states/Progress';
+import { IOneTask } from 'src/states/Task';
 
 function returnNowAreaTasks(): IOneTask[] {
   const whereArea = useSelector((state: IState) => state.display.whereArea);

@@ -1,17 +1,17 @@
-import IAllTasks from "src/states/AllTasks";
 import ChangeTaskQuantityAction from 'src/actions/ChangeTaskQuantity/ChangeTaskQuantityAction';
 import ChangeTaskQuantityActionType from 'src/actions/ChangeTaskQuantity/ChangeTaskQuantityActionType';
-import IOneTask from 'src/states/oneTask';
 import update from 'immutability-helper';
 import ChangeProgressActionType from 'src/actions/ChangeProgress/ChangeProgressActionType';
 import ChangeProgressAction from 'src/actions/ChangeProgress/ChangeProgressAction';
 import {  initialState } from 'src/states/initialState';
+import { IAllTasks, IOneTask } from 'src/states/Task';
 
 const getAllTasksToLocalStorage = localStorage.getItem('allTasks');
 const InitialState: IAllTasks = getAllTasksToLocalStorage ? JSON.parse(getAllTasksToLocalStorage) : initialState;
 
 type AllTasksAction = ChangeTaskQuantityAction | ChangeProgressAction
 
+// localStrageに全てのタスクを保存する関数
 function setAllTasksToLocalStrage(state: IAllTasks) {
     localStorage.setItem('allTasks', JSON.stringify(state))
 }
