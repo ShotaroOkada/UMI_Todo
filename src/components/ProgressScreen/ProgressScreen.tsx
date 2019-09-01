@@ -35,7 +35,6 @@ export default function Progress() {
         return (
           <div id={progressName} key={progressName}>
             {progressName}
-            {/* ここで読んでる関数が更新されなくて意図した挙動になってなさそう */}
             {returnNowAreaTasks().map((task, taskIndex) => {
               const dispatchBackProgress = () => dispatch(backProgress(whereArea, taskIndex));
               const dispatchAdvenceProgress = () => dispatch(advanceProgress(whereArea, taskIndex));
