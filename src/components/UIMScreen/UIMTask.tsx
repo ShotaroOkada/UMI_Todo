@@ -4,13 +4,13 @@ import { progressLayout } from 'src/states/Progress';
 import { IDeleteTaskAction } from 'src/actions/ChangeTaskQuantity/ChangeTaskQuantityAction';
 import { dummy } from './UIM';
 
-type ITaskparentProps = {
+type IUIMTaskparentProps = {
     task: IOneTask,
     taskIndex: number,
     dispatchDeleteTask: () => IDeleteTaskAction
 }
 
-export default function Task(props: ITaskparentProps) {
+export default function UIMTask(props: IUIMTaskparentProps) {
     const {task, taskIndex, dispatchDeleteTask} = props;
     return(        
         <div key={task.name} id={progressLayout[task.progress]} onClick={dummy}>

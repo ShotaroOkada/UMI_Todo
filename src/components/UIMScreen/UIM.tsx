@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { deleteTask } from 'src/actions/ChangeTaskQuantity/ChangeTaskQuantityActionCreator';
 import { areaNames } from 'src/states/Area';
 import { toProgress } from 'src/actions/ChangeDisplay/ChangeDisplayActionCreator';
-import Task from './Task';
+import UIMTask from './UIMTask';
 
 // čŚŞăŽă¤ăăłăăăłăăŠăĺăäťăăŞăăăăŤăă
 export function dummy(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
@@ -27,7 +27,7 @@ export default function UIM(props: IUIMParentProps) {
             {tasks.length !== null &&
                 tasks.map((task, taskIndex) => {
                     const dispatchDeleteTask = () => dispatchDeleteTask0(taskIndex)
-                    return <Task key={`area${areaIndex}:task${taskIndex}`} task={task} taskIndex={taskIndex} dispatchDeleteTask={dispatchDeleteTask} />
+                    return <UIMTask key={`area${areaIndex}:task${taskIndex}`} task={task} taskIndex={taskIndex} dispatchDeleteTask={dispatchDeleteTask} />
                 })
             }
         </div>
