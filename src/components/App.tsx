@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
-import Area from 'src/components/Area';
-import Progress from 'src/components/Progress';
+import AreaScreen from './UIMScreen/UIMScreen';
+import Progress from 'src/components/ProgressScreen/ProgressScreen';
 import IState from 'src/states';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     return (
         <div style={{ height: '100%' }}>
             {nowDisplay === 'area' &&
-                <Area />
+                <AreaScreen />
             }
             {nowDisplay === 'progress' &&
                 <Progress />
