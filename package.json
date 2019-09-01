@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/react-beautiful-dnd": "^11.0.3",
     "@types/react-redux": "^7.1.0",
     "@types/redux-logger": "^3.0.7",
     "foreman": "^3.0.1",
     "immutability-helper": "^3.0.0",
     "immutable-helper": "^0.0.5",
     "react": "^16.8.6",
+    "react-beautiful-dnd": "^11.0.5",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
     "react-scripts-ts": "3.1.0",
@@ -58,7 +60,7 @@
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
     "electron": "node_modules/.bin/electron .",
-    "dev" : "nf start -p 3000",
+    "dev": "nf start -p 3000",
     "package:mac": "react-scripts-ts build && electron-builder --mac --x64",
     "package:windows": "react-scripts-ts build && electron-builder --win --x64",
     "package:linux": "react-scripts-ts build && electron-builder --linux --x64"
@@ -68,7 +70,7 @@
     "@types/node": "^12.0.3",
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
-    "typescript": "^3.5.1",
-    "electron": "^5.0.7"
+    "electron": "^5.0.7",
+    "typescript": "^3.5.1"
   }
 }

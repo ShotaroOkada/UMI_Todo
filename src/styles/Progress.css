@@ -100,9 +100,13 @@
     background: whitesmoke;
     border-radius: 10px;
     padding: 2px 2px 0px 5px;
-    margin: 10px auto;
+    margin: 10px;
 }
 
 #arrow {
     cursor: pointer;
+}
+
+#dndSpace {
+    min-height: 90%;
 }
