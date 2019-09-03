@@ -2,7 +2,7 @@ import * as React from 'react'
 import { IOneTask } from 'src/states/Task';
 import { IBackProgressAction, IAdvanceProgressAction } from 'src/actions/ChangeProgress/ChangeProgressAction';
 import { progressNames } from 'src/states/Progress';
-import { Draggable } from 'react-beautiful-dnd';
+import { Draggable, DraggableProvided } from 'react-beautiful-dnd';
 
 export type IProgressTaskParentProps = {
     task: IOneTask,
@@ -14,8 +14,8 @@ export type IProgressTaskParentProps = {
 export default function ProgressTask(props: IProgressTaskParentProps) {
     const { task, dispatchAdvenceProgress, dispatchBackProgress, taskIndex } = props;
     return (
-        <Draggable draggableId={task.name} index={taskIndex}>
-            {(provided) => (
+        <Draggable draggableId={taskIndex.toString()} index={taskIndex}>
+            {(provided: DraggableProvided) => (
                 <div 
                     key={task.name} id="taskLayout"
                     {...provided.draggableProps}
