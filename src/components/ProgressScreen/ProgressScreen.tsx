@@ -6,7 +6,7 @@ import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 
 
 
-export default function Progress() {
+export default function ProgressScreen() {
   const onDragEnd = (result: DropResult) => {
     console.log(JSON.stringify(result))
   }

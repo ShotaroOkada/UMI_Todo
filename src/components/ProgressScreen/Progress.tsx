@@ -1,14 +1,14 @@
 import * as React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import IState from 'src/states';
-import { IOneTask } from 'src/states/Task';
+import { IOneTask, IAllTasks } from 'src/states/Task';
 import ProgressTask from './Task';
 import { backProgress, advanceProgress } from 'src/actions/ChangeProgress/ChangeProgressActionCreator';
 import { Droppable } from 'react-beautiful-dnd';
 
 function returnNowAreaTasks(): IOneTask[] {
-    const whereArea = useSelector((state: IState) => state.display.whereArea);
-    const allTasks = useSelector((state: IState) => state.allTasks);
+    const whereArea = useSelector<IState, number>(state => state.display.whereArea);
+    const allTasks = useSelector<IState, IAllTasks>(state => state.allTasks);
     switch (whereArea) {
         case 0:
             return allTasks.area0Tasks

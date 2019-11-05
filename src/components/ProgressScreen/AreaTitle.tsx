@@ -5,7 +5,7 @@ import { toArea } from 'src/actions/ChangeDisplay/ChangeDisplayActionCreator';
 import IState from 'src/states';
 
 export default function AreaTitle() {
-    const whereArea = useSelector((state: IState) => state.display.whereArea);
+    const whereArea = useSelector<IState, number>(state => state.display.whereArea);
     const dispatch = useDispatch()
     const dispatchToArea = () => dispatch(toArea())
     return(
