@@ -1,4 +1,9 @@
+export enum displayName {
+    progress = 'progress',
+    area = 'area'
+}
+
 export default interface IDisplay {
-    nowDisplay: string;
-    whereArea: number; 
+    displayScreen: string;
+    areaName: string
 }

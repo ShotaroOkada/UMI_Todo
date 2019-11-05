@@ -15,7 +15,9 @@
     "react-redux": "^7.1.0",
     "react-scripts-ts": "3.1.0",
     "redux": "^4.0.1",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "tslib": "^1.10.0",
+    "typesafe-actions": "^5.1.0"
   },
   "homepage": "./",
   "main": "src/electron-starter.js",
@@ -71,6 +73,6 @@
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
     "electron": "^5.0.7",
-    "typescript": "^3.5.1"
+    "typescript": "^3.6.4"
   }
 }
