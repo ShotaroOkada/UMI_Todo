@@ -35,19 +35,33 @@ export default function tasks(state: ITasks = InitialState, action: TasksAction)
                     ]
                 }
             }
+        case TasksActionType.CHANGE_ORDER_TASK:
+            const newOrderTasks = [...state[action.payload.areaName][action.payload.progressName]]
+            newOrderTasks.splice(action.payload.sourceTaskIndex, 1)
+            newOrderTasks.splice(action.payload.destinationTaskIndex, 0, action.payload.taskName)
+            return {
+                ...state,
+                [action.payload.areaName]: {
+                    ...state[action.payload.areaName],
+                    [action.payload.progressName]: [
+                        ...newOrderTasks
+                    ]
+                }
+            }
         case TasksActionType.CHANGE_PROGRESS_TASK:
+            const newSourceTasks = [...state[action.payload.areaName][action.payload.sourceProgressName]]
+            newSourceTasks.splice(action.payload.sourceTaskIndex, 1);
+            const newDestinationTasks = [...state[action.payload.areaName][action.payload.destinationProgressName]]
+            newDestinationTasks.splice(action.payload.destinationTaskIndex, 0, action.payload.taskName)
             return {
                 ...state,
                 [action.payload.areaName]: {
                     ...state[action.payload.areaName],
                     [action.payload.sourceProgressName]: [
-                        ...state[action.payload.areaName][action.payload.sourceProgressName].slice(0, action.payload.sourceTaskIndex),
-                        ...state[action.payload.areaName][action.payload.sourceProgressName].slice(action.payload.sourceTaskIndex + 1),
+                        ...newSourceTasks
                     ],
-                    [action.payload.sourceProgressName]: [
-                        ...state[action.payload.areaName][action.payload.destinationProgressName].slice(0, action.payload.destinationTaskIndex),
-                        action.payload.taskName,
-                        ...state[action.payload.areaName][action.payload.destinationProgressName].slice(action.payload.destinationTaskIndex)
+                    [action.payload.destinationProgressName]: [
+                        ...newDestinationTasks
                     ]
                 }
             }

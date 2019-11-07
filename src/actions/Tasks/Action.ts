@@ -15,6 +15,14 @@ export type deleteTaskArguments = {
     taskIndex: number
 }
 
+export type changeOrderTaskArguments = {
+    areaName: string,
+    taskName: string,
+    progressName: string,
+    sourceTaskIndex: number,
+    destinationTaskIndex: number
+}
+
 export type changeProgressTaskArguments = {
     areaName: string,
     taskName: string,

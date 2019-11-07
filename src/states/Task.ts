@@ -8,7 +8,7 @@ export interface ITasks {
 
 export const initialState: ITasks = {
     doFirst: {
-        idea: [],
+        idea: ['a', 'i', 'u', 'e', 'o'],
         planning: [],
         donePlan: [],
         doing: [],
