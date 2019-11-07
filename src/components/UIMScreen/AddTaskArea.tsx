@@ -11,7 +11,7 @@ export default function AddTask() {
 
     const dispatch = useDispatch();
     const [inputAddTask, setInputaddTask] = useState('');
-    const [selectedArea, setSelectedArea] = useState('');
+    const [selectedArea, setSelectedArea] = useState('doFirst');
     
     // タスク追加フォームのイベント
     function onInputAddTaskChange(event: React.FormEvent<HTMLInputElement>) {

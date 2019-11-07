@@ -55,8 +55,7 @@
     font-family: Meiryo;
     background: #FF82B2;
     border-radius: 10px;
-    padding: 5px;
-
+    padding: 10px 10px 10px 15px;
     display: flex;
     flex-direction: column;  
 }
@@ -68,7 +67,7 @@
     font-family: Meiryo;
     background: #FFAD90;
     border-radius: 10px;
-    padding: 5px;
+    padding: 10px;
 }
 
 #donePlanArea {
@@ -78,7 +77,7 @@
     font-family: Meiryo;
     background: #FFFF99;
     border-radius: 10px;
-    padding: 5px;
+    padding: 10px;
 }
 
 #doingArea {
@@ -88,7 +87,7 @@
     font-family: Meiryo;
     background: #93FFAB;
     border-radius: 10px;
-    padding: 5px;
+    padding: 10px;
 }
 
 #doneArea {
@@ -98,17 +97,16 @@
     font-family: Meiryo;
     background: #99FFFF;
     border-radius: 10px;
-    padding: 5px;
+    padding: 10px;
 }
 
 #taskLayout {
     color: #424242;
     display: table; /*バックグラウンドの領域を文字サイズに合わせる*/
-    font-weight: bold;
     font-family: Meiryo;
     background: whitesmoke;
     border-radius: 10px;
-    padding: 2px 2px 0px 5px;
+    padding: 5px 8px 5px 8px;
     margin: 10px 0 0 0;
 }
 
