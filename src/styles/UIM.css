@@ -18,7 +18,7 @@
 }
 
 
-#area0 {
+#doFirstArea {
     grid-area: area0;
     background-image: url(../images/sunny_opacity.png);
     background-size: cover;
@@ -30,7 +30,7 @@
     cursor : pointer;
 }
 
-#area1 {
+#doLaterArea {
     grid-area: area1;
     background-image: url(../images/rainbow_opacity.png);
     background-size: cover;
@@ -42,7 +42,7 @@
     cursor : pointer;
 }
 
-#area2 {
+#delegateArea {
     grid-area: area2;
     background-image: url(../images/cloud_opacity.png);
     background-size: cover;
@@ -54,7 +54,7 @@
     cursor : pointer;
 }
 
-#area3 {
+#eliminateArea {
     grid-area: area3;
     background-image: url(../images/rain_opacity.png);
     background-size: cover;
@@ -66,7 +66,7 @@
     cursor : pointer;
 }
 
-#progress0Task {
+#ideaTask {
     display: inline-block;
     background: #FF82B2;
     border-radius: 10px;
@@ -75,7 +75,7 @@
     cursor: default;
 }
 
-#progress1Task {
+#planningTask {
     display: inline-block;
     background: #FFAD90;
     border-radius: 10px;
@@ -84,7 +84,7 @@
     cursor: default;
 }
 
-#progress2Task {
+#donePlanTask {
     display: inline-block;
     background: #FFFF99;
     border-radius: 10px;
@@ -93,7 +93,7 @@
     cursor: default;
 }
 
-#progress3Task {
+#doingTask {
     display: inline-block;
     background: #93FFAB;
     border-radius: 10px;
@@ -102,7 +102,7 @@
     cursor: default;
 }
 
-#progress4Task {
+#doneTask {
     display: inline-block;
     background: #99FFFF;
     border-radius: 10px;

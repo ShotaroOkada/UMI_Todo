@@ -8,7 +8,7 @@
         "idea     planning donePlan doing    done";
 }
 
-#area0title {
+#doFirstTitle {
     grid-area: areaName;
     background-image: url(../images/sunny_opacity.png);
     background-size: contain;
@@ -18,7 +18,7 @@
     cursor : pointer;
 }
 
-#area1title {
+#doLaterTitle {
     grid-area: areaName;
     background-image: url(../images/rainbow_opacity.png);
     background-size: contain;
@@ -28,7 +28,7 @@
     cursor : pointer;
 }
 
-#area2title {
+#delegateTitle {
     grid-area: areaName;
     background-image: url(../images/cloud_opacity.png);
     background-size: contain;
@@ -38,7 +38,7 @@
     cursor : pointer;
 }
 
-#area3title {
+#eliminateTitle {
     grid-area: areaName;
     background-image: url(../images/rain_opacity.png);
     background-size: contain;

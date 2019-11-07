@@ -1,9 +1,10 @@
-import { createStandardAction } from 'typesafe-actions/dist/deprecated/create-standard-action';
+
 import DisplayActionType from './ActionType';
+import { createAction } from 'typesafe-actions';
 
 type toProgressArgument = {
     areaName: string
 }
 
-export const toArea = createStandardAction(DisplayActionType.TO_AREA)<undefined>();
-export const toProgress = createStandardAction(DisplayActionType.TO_PROGRESS)<toProgressArgument>();
+export const toArea = createAction(DisplayActionType.TO_AREA)<undefined>();
+export const toProgress = createAction(DisplayActionType.TO_PROGRESS)<toProgressArgument>();

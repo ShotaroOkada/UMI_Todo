@@ -15,8 +15,9 @@ export default function Task(props: Props) {
     const dispatch = useDispatch();
     const dispatchDeleteTask = () => dispatch(deleteTask({areaName, progressName, taskIndex}))
     return(        
-        <div key={taskIndex} id={progressName} onClick={dummy}>
+        <div key={taskIndex} id={`${progressName}Task`} onClick={dummy}>
             {task}
+            {console.log(`fuga:${task}`)}
             <span key={`dast${taskIndex}`} id={'dust'} onClick={dispatchDeleteTask}>🧺</span>
         </div>
     )

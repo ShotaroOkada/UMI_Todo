@@ -5,3 +5,34 @@ export interface IProgressesTasks {
 export interface ITasks {
     [areaName:string]: IProgressesTasks
 }
+
+export const initialState: ITasks = {
+    doFirst: {
+        idea: [],
+        planning: [],
+        donePlan: [],
+        doing: [],
+        done: []
+    },
+    doLater: {
+        idea: [],
+        planning: [],
+        donePlan: [],
+        doing: [],
+        done: []
+    },
+    delegate: {
+        idea: [],
+        planning: [],
+        donePlan: [],
+        doing: [],
+        done: []
+    },
+    eliminate: {
+        idea: [],
+        planning: [],
+        donePlan: [],
+        doing: [],
+        done: []
+    }
+}

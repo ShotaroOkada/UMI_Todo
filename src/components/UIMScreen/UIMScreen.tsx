@@ -1,5 +1,5 @@
 import * as React from 'react'
-import '../../styles/Area.css'
+import '../../styles/UIM.css'
 import '../../styles/index.css'
 import AddTaskArea from './AddTaskArea';
 import UIMArea from './UIMArea';

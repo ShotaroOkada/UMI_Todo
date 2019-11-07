@@ -1,14 +1,15 @@
-import { ITasks } from 'src/states/Task';
+import { ITasks, initialState } from 'src/states/Task';
 import { progressNames } from 'src/states/Progress';
 import TasksAction from 'src/actions/Tasks/Action';
+import TasksActionType from 'src/actions/Tasks/ActionType';
 
 const getAllTasksToLocalStorage = localStorage.getItem('Tasks');
-const InitialState: ITasks = getAllTasksToLocalStorage ? JSON.parse(getAllTasksToLocalStorage) : {};
+const InitialState: ITasks = getAllTasksToLocalStorage ? JSON.parse(getAllTasksToLocalStorage) : initialState;
 
 // localStrageに全てのタスクを保存する関数
-function setTasksToLocalStrage(state: ITasks) {
-    localStorage.setItem('Tasks', JSON.stringify(state))
-}
+// function setTasksToLocalStrage(state: ITasks) {
+//     localStorage.setItem('Tasks', JSON.stringify(state))
+// }
 
 export default function tasks(state: ITasks = InitialState, action: TasksAction): ITasks {
     switch (action.type) {
@@ -29,7 +30,7 @@ export default function tasks(state: ITasks = InitialState, action: TasksAction)
                 [action.payload.areaName]: {
                     ...state[action.payload.areaName],
                     [action.payload.progressName]: [
-                        ...state[action.payload.areaName][action.payload.progressName.slice(0, action.payload.taskIndex)]
+                        ...state[action.payload.areaName][action.payload.progressName].slice(0, action.payload.taskIndex)
                     ]
                 }
             }

@@ -5,10 +5,10 @@ import IState from 'src/states';
 import { ITasks } from 'src/states/Task';
 
 export default function ProgressArea() {
-    const tasks = useSelector<IState, ITasks>(state => state.tasks)
+    const allTasks = useSelector<IState, ITasks>(state => state.tasks)
     return(
     <>
-    {Object.entries(tasks).map(([_, progressTasks]) => {
+    {Object.entries(allTasks).map(([_, progressTasks]) => {
       Object.entries(progressTasks).map(([progressName, tasks], progressIndex) => {
         return <Progress key={progressName} progressName={progressName} progressIndex={progressIndex} tasks={tasks}/>
       })
