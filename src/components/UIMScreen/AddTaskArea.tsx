@@ -12,7 +12,7 @@ export default function AddTask() {
     const dispatch = useDispatch();
     const [inputAddTask, setInputaddTask] = useState('');
     const [selectedArea, setSelectedArea] = useState('doFirst');
-    
+
     // タスク追加フォームのイベント
     function onInputAddTaskChange(event: React.FormEvent<HTMLInputElement>) {
         setInputaddTask(event.currentTarget.value);
@@ -54,16 +54,18 @@ export default function AddTask() {
 
     return (
         <div id="addTaskArea">
-            <span id="appTitle">Urgent Important Matrix Todo</span>
-            <br />
-            {progressNames.map(progressName => {
-                return <span key={progressName} id={`${progressName}Info`}>{progressName}</span>
-            })}
-            <div id='addTaskComponents'>
-                <input type="text" placeholder='task name' value={inputAddTask} onChange={onInputAddTaskChange}/>
+            <span id='appInfos'>
+                <span id="appTitle">Urgent Important Matrix Todo</span>
+                <br />
+                {progressNames.map(progressName => {
+                    return <span key={progressName} id={`${progressName}Info`}>{progressName}</span>
+                })}
+            </span>
+            <span id='addTaskComponents'>
+                <input type="text" placeholder='task name' value={inputAddTask} onChange={onInputAddTaskChange} />
                 <button id="mouseYubi" onClick={submitNewTask}>+</button>
                 {selectAreaRatio()}
-            </div>
+            </span>
         </div>
     )
 }
