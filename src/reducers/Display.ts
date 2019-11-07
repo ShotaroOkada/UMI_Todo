@@ -1,25 +1,25 @@
-import IDisplay from "src/states/Display";
-import ChangeDisplayActionType from 'src/actions/ChangeDisplay/ChangeDisplayActionType';
-import IChangeDisplayAction from 'src/actions/ChangeDisplay/ChangeDisplayAction';
+import IDisplay, { displayName } from "src/states/Display";
+import DisplayAction from 'src/actions/Display/Action';
+import DisplayActionType from 'src/actions/Display/ActionType';
 
 const initialState: IDisplay = {
-    nowDisplay: 'area',
-    whereArea: -1
+    displayScreen: displayName.area,
+    displayAreaName: 'null'
 }
 
-export default function display(state: IDisplay = initialState, action: IChangeDisplayAction): IDisplay {
+export default function display(state: IDisplay = initialState, action: DisplayAction): IDisplay {
     switch(action.type) {
-        case ChangeDisplayActionType.TO_PROGRESS:
+        case DisplayActionType.TO_PROGRESS:
             return {
                 ...state,
-                nowDisplay: 'progress',
-                whereArea: action.area
+                displayScreen: displayName.progress,
+                displayAreaName: action.payload.areaName
             }
-        case ChangeDisplayActionType.TO_AREA:
+        case DisplayActionType.TO_AREA:
             return {
                 ...state,
-                nowDisplay: 'area',
-                whereArea: -1
+                displayScreen: displayName.area,
+                displayAreaName: 'null'
             }
         default:
             return state;

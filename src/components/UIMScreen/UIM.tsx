@@ -12,22 +12,23 @@ export function dummy(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
 }
 
 type IUIMParentProps = {
-    tasks: IOneTask[],
-    areaIndex: number
+    tasks: string[],
+    areaName: string,
+    progressName: string
 }
 
 export default function UIM(props: IUIMParentProps) {
     const dispatch = useDispatch();
-    const {tasks, areaIndex} = props
-    const dispatchToProgress = () => dispatch(toProgress(areaIndex));
-    const dispatchDeleteTask0 = (taskIndex: number) => dispatch(deleteTask(areaIndex, taskIndex))
+    const {tasks, areaName, progressName} = props
+    const dispatchToProgress = () => dispatch(toProgress(areaName));
+    const dispatchDeleteTask0 = (taskIndex: number) => dispatch(deleteTask({areaName, taskId: taskIndex}))
     return (
-        <div id={`area${areaIndex}`} key={`area${areaIndex}`} onClick={dispatchToProgress}>
-            <div id="areaName">{areaNames[areaIndex]}</div>
+        <div id={`${areaName}`} key={`area${areaName}`} onClick={dispatchToProgress}>
+            <div id="areaName">{areaName}</div>
             {tasks.length !== null &&
                 tasks.map((task, taskIndex) => {
                     const dispatchDeleteTask = () => dispatchDeleteTask0(taskIndex)
-                    return <UIMTask key={`area${areaIndex}:task${taskIndex}`} task={task} taskIndex={taskIndex} dispatchDeleteTask={dispatchDeleteTask} />
+                    return <UIMTask key={`${areaName}:task${taskIndex}`} task={task} taskIndex={taskIndex} dispatchDeleteTask={dispatchDeleteTask} />
                 })
             }
         </div>

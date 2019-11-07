@@ -5,5 +5,5 @@ export enum displayName {
 
 export default interface IDisplay {
     displayScreen: string;
-    areaName: string
+    displayAreaName: string
 }

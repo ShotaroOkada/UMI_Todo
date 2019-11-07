@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import allTasks from './AllTasks';
+import tasks from './Tasks';
 import display from './Display'
 
 const rootReducer = combineReducers({
-    allTasks,
+    tasks,
     display
 })
 
