@@ -17,7 +17,6 @@ export default function Task(props: Props) {
     return(        
         <div key={taskIndex} id={`${progressName}Task`} onClick={dummy}>
             {task}
-            {console.log(`fuga:${task}`)}
             <span key={`dast${taskIndex}`} id={'dust'} onClick={dispatchDeleteTask}>🧺</span>
         </div>
     )

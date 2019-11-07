@@ -30,7 +30,8 @@ export default function tasks(state: ITasks = InitialState, action: TasksAction)
                 [action.payload.areaName]: {
                     ...state[action.payload.areaName],
                     [action.payload.progressName]: [
-                        ...state[action.payload.areaName][action.payload.progressName].slice(0, action.payload.taskIndex)
+                        ...state[action.payload.areaName][action.payload.progressName].slice(0, action.payload.taskIndex),
+                        ...state[action.payload.areaName][action.payload.progressName].slice(action.payload.taskIndex + 1)
                     ]
                 }
             }
@@ -39,12 +40,14 @@ export default function tasks(state: ITasks = InitialState, action: TasksAction)
                 ...state,
                 [action.payload.areaName]: {
                     ...state[action.payload.areaName],
-                    [action.payload.beforeProgressName]: [
-                        ...state[action.payload.areaName][action.payload.beforeProgressName].slice(0, action.payload.taskIndex)
+                    [action.payload.sourceProgressName]: [
+                        ...state[action.payload.areaName][action.payload.sourceProgressName].slice(0, action.payload.sourceTaskIndex),
+                        ...state[action.payload.areaName][action.payload.sourceProgressName].slice(action.payload.sourceTaskIndex + 1),
                     ],
-                    [action.payload.afterProgressName]: [
-                        ...state[action.payload.areaName][action.payload.afterProgressName],
-                        action.payload.taskName
+                    [action.payload.sourceProgressName]: [
+                        ...state[action.payload.areaName][action.payload.destinationProgressName].slice(0, action.payload.destinationTaskIndex),
+                        action.payload.taskName,
+                        ...state[action.payload.areaName][action.payload.destinationProgressName].slice(action.payload.destinationTaskIndex)
                     ]
                 }
             }

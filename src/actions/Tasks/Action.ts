@@ -16,9 +16,10 @@ export type deleteTaskArguments = {
 }
 
 export type changeProgressTaskArguments = {
-    taskName: string,
-    taskIndex: number,
     areaName: string,
-    beforeProgressName: string,
-    afterProgressName: string
+    taskName: string,
+    sourceTaskIndex: number,
+    destinationTaskIndex: number,
+    sourceProgressName: string,
+    destinationProgressName: string
 }
