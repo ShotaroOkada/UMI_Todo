@@ -39,11 +39,10 @@ export default function AddTask() {
                 {
                     areaIcons.map((areaIcon, index: number) => {
                         const setSelectedAreaCall = () => setSelectedArea(areaNames[index]);
+                        const id = (selectedArea === areaNames[index]) ? 'selectedAreaIcon' : 'nonSelectedAreaIcon'
                         return (
                             <span key={index}>
-                                <input id="mouseYubi" key={index} type="radio" name="area" value={index} checked={selectedArea === areaNames[index]}
-                                    onChange={setSelectedAreaCall} />
-                                <span id="mouseYubi" onClick={setSelectedAreaCall}>{areaIcon}</span>
+                                <span id={id} onClick={setSelectedAreaCall}>{areaIcon}</span>
                                 &nbsp;
                               </span>
                         )
@@ -55,7 +54,7 @@ export default function AddTask() {
 
     return (
         <div id="addTaskArea">
-            <div id="appTitle">Urgent Important Matrix Todo</div>
+            <span id="appTitle">Urgent Important Matrix Todo</span>
             <br />
             {progressNames.map(progressName => {
                 return <span key={progressName} id={`${progressName}Info`}>{progressName}</span>

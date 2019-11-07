@@ -139,6 +139,7 @@
 
 #addTaskComponents {
     float: right;
+    margin-top: 0px;
 }
 
 #ideaInfo {
@@ -212,6 +213,7 @@ input[type='text'] {
     padding-bottom: 5px;
     border-radius: 8px;
     border: 0;
+    margin-bottom: 15px;
 }
 
 button {
@@ -227,8 +229,20 @@ button {
 }
 
 
-/* input[type='radio'] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-} */
+#selectedAreaIcon {
+    font-size: 25px;
+    background: springgreen;
+    border-radius: 4px;
+    padding: 7px;
+    cursor : pointer;
+    margin-right: 15px;
+    transition: .2s;
+}
+
+#nonSelectedAreaIcon {
+    font-size: 25px;
+    padding: 7px;
+    cursor : pointer;
+    margin-right: 15px;
+    transition: .2s;
+}
