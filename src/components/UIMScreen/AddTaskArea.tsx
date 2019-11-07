@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { progressNames } from 'src/states/Progress';
 import { useDispatch } from 'react-redux';
-import { IOneTask } from 'src/states/Task';
-import { addNewTask } from 'src/actions/ChangeTaskQuantity/ChangeTaskQuantityActionCreator';
+import { areaNames } from 'src/states/Area';
+import { addTaskArguments } from 'src/actions/Tasks/Action';
+import { addTask } from 'src/actions/Tasks/ActionCreator';
 
 const { useState } = React;
 
@@ -10,7 +11,7 @@ export default function AddTask() {
 
     const dispatch = useDispatch();
     const [inputAddTask, setInputaddTask] = useState('');
-    const [selectedArea, setSelectedArea] = useState(0);
+    const [selectedArea, setSelectedArea] = useState('');
     
     // タスク追加フォームのイベント
     function onInputAddTaskChange(event: React.FormEvent<HTMLInputElement>) {
@@ -22,12 +23,11 @@ export default function AddTask() {
         if (inputAddTask === '') {
             return;
         }
-        const createAddtaskObject: IOneTask = {
-            name: inputAddTask,
-            area: selectedArea,
-            progress: 0
+        const addTaskObject: addTaskArguments = {
+            taskName: inputAddTask,
+            areaName: selectedArea,
         }
-        dispatch(addNewTask(createAddtaskObject));
+        dispatch(addTask(addTaskObject));
         setInputaddTask('');
     }
 
@@ -38,10 +38,10 @@ export default function AddTask() {
             <div key='selectAreaRatio'>
                 {
                     areaIcons.map((areaIcon, index: number) => {
-                        const setSelectedAreaCall = () => setSelectedArea(index);
+                        const setSelectedAreaCall = () => setSelectedArea(areaNames[index]);
                         return (
                             <span key={index}>
-                                <input id="mouseYubi" key={index} type="radio" name="area" value={index} checked={selectedArea === index}
+                                <input id="mouseYubi" key={index} type="radio" name="area" value={index} checked={selectedArea === areaNames[index]}
                                     onChange={setSelectedAreaCall} />
                                 <span id="mouseYubi" onClick={setSelectedAreaCall}>{areaIcon}</span>
                                 &nbsp;
@@ -59,21 +59,13 @@ export default function AddTask() {
             <br />
             {progressNames.map((progressName, index) => {
                 return <span key={progressName} id={'progressInfo'}>
-                    <span id={`progress${index}`}>
-                        ■
-                            </span>
-                    <span id={'progressName'}>
-                        {progressName}
-                    </span>
+                    <span id={`progress${index}`}>■</span>
+                    <span id={'progressName'}>{progressName}</span>
                 </span>
 
             })}
             <div id='addTaskComponents'>
-                <input
-                    type="text"
-                    value={inputAddTask}
-                    onChange={onInputAddTaskChange}
-                />
+                <input type="text" value={inputAddTask} onChange={onInputAddTaskChange}/>
                 <button id="mouseYubi" onClick={submitNewTask}>+</button>
                 {selectAreaRatio()}
             </div>

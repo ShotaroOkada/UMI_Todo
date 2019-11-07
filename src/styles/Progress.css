@@ -8,7 +8,7 @@
         "idea     planning donePlan doing    done";
 }
 
-#area0title {
+#doFirstTitle {
     grid-area: areaName;
     background-image: url(../images/sunny_opacity.png);
     background-size: contain;
@@ -18,7 +18,7 @@
     cursor : pointer;
 }
 
-#area1title {
+#doLaterTitle {
     grid-area: areaName;
     background-image: url(../images/rainbow_opacity.png);
     background-size: contain;
@@ -28,7 +28,7 @@
     cursor : pointer;
 }
 
-#area2title {
+#delegateTitle {
     grid-area: areaName;
     background-image: url(../images/cloud_opacity.png);
     background-size: contain;
@@ -38,7 +38,7 @@
     cursor : pointer;
 }
 
-#area3title {
+#eliminateTitle {
     grid-area: areaName;
     background-image: url(../images/rain_opacity.png);
     background-size: contain;
@@ -48,7 +48,7 @@
     cursor : pointer;
 }
 
-#idea {
+#ideaArea {
     grid-area: idea;
     font-weight: bold;
     font-family: Meiryo;
@@ -60,7 +60,7 @@
     flex-direction: column;  
 }
 
-#planning {
+#planningArea {
     grid-area: planning;
     font-weight: bold;
     font-family: Meiryo;
@@ -69,7 +69,7 @@
     padding: 5px;
 }
 
-#donePlan {
+#donePlanArea {
     grid-area: donePlan;
     font-weight: bold;
     font-family: Meiryo;
@@ -78,7 +78,7 @@
     padding: 5px;
 }
 
-#doing {
+#doingArea {
     grid-area: doing;
     font-weight: bold;
     font-family: Meiryo;
@@ -87,7 +87,7 @@
     padding: 5px;
 }
 
-#done {
+#doneArea {
     grid-area: done;
     font-weight: bold;
     font-family: Meiryo;

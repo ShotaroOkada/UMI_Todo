@@ -1,13 +1,38 @@
-export interface IOneTask {
-    name: string,
-    area: number,
-    progress: number
-} 
+export interface IProgressesTasks {
+    [progressName:string]: string[] // ここのstringにはタスクの名前が入る
+}
 
-export interface IAllTasks {
-    addTask: IOneTask,
-    area0Tasks: IOneTask[],
-    area1Tasks: IOneTask[],
-    area2Tasks: IOneTask[],
-    area3Tasks: IOneTask[]
+export interface ITasks {
+    [areaName:string]: IProgressesTasks
+}
+
+export const initialState: ITasks = {
+    doFirst: {
+        idea: [],
+        planning: [],
+        donePlan: [],
+        doing: [],
+        done: []
+    },
+    doLater: {
+        idea: [],
+        planning: [],
+        donePlan: [],
+        doing: [],
+        done: []
+    },
+    delegate: {
+        idea: [],
+        planning: [],
+        donePlan: [],
+        doing: [],
+        done: []
+    },
+    eliminate: {
+        idea: [],
+        planning: [],
+        donePlan: [],
+        doing: [],
+        done: []
+    }
 }

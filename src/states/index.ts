@@ -1,8 +1,9 @@
 import IDisplay from './Display';
-import { IAllTasks } from './Task';
+import { ITasks } from './Task';
+
 
 // 全てのstateを集約させるところ
 export default interface IState {
-    allTasks: IAllTasks;
+    tasks: ITasks;
     display: IDisplay;
 }

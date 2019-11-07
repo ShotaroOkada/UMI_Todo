@@ -1,10 +1,8 @@
 import * as React from 'react'
 import '../../styles/Progress.css'
-import AreaTitle from './AreaTitle';
+import TitleArea from './TitleArea';
 import ProgressArea from './ProgressArea';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
-
-
 
 export default function ProgressScreen() {
   const onDragEnd = (result: DropResult) => {
@@ -13,7 +11,7 @@ export default function ProgressScreen() {
 
   return (
     <div id="progressContainer">
-      <AreaTitle />
+      <TitleArea />
       <DragDropContext onDragEnd={onDragEnd}>
         <ProgressArea />
       </DragDropContext>
