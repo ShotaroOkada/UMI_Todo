@@ -49,6 +49,7 @@
 }
 
 #ideaArea {
+    color: #424242;
     grid-area: idea;
     font-weight: bold;
     font-family: Meiryo;
@@ -61,6 +62,7 @@
 }
 
 #planningArea {
+    color: #424242;
     grid-area: planning;
     font-weight: bold;
     font-family: Meiryo;
@@ -70,6 +72,7 @@
 }
 
 #donePlanArea {
+    color: #424242;
     grid-area: donePlan;
     font-weight: bold;
     font-family: Meiryo;
@@ -79,6 +82,7 @@
 }
 
 #doingArea {
+    color: #424242;
     grid-area: doing;
     font-weight: bold;
     font-family: Meiryo;
@@ -88,6 +92,7 @@
 }
 
 #doneArea {
+    color: #424242;
     grid-area: done;
     font-weight: bold;
     font-family: Meiryo;
@@ -97,6 +102,7 @@
 }
 
 #taskLayout {
+    color: #424242;
     display: table; /*バックグラウンドの領域を文字サイズに合わせる*/
     font-weight: bold;
     font-family: Meiryo;
@@ -112,8 +118,4 @@
 
 #dndSpace {
     min-height: 90%;
-    /* background: black; */
-
-   
-    /* align-items: center; */
 }

@@ -17,7 +17,7 @@ export default function Task(props: Props) {
     return(        
         <div key={taskIndex} id={`${progressName}Task`} onClick={dummy}>
             {task}
-            <span key={`dast${taskIndex}`} id={'dust'} onClick={dispatchDeleteTask}>🧺</span>
+            <span key={`dast${taskIndex}`} id={'dust'} onClick={dispatchDeleteTask}> 🗑</span>
         </div>
     )
 }

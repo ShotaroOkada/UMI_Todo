@@ -58,11 +58,11 @@ export default function AddTask() {
             <div id="appTitle">Urgent Important Matrix</div>
             <br />
             {progressNames.map((progressName, index) => {
-                return <span key={progressName} id={'progressInfo'}>
-                    <span id={`progress${index}`}>■</span>
-                    <span id={'progressName'}>{progressName}</span>
-                </span>
-
+                // return <span key={progressName} id={'progressInfo'}>
+                //     <span id={`progress${index}`}>■</span>
+                //     <span id={'progressName'}>{progressName}</span>
+                // </span>
+                return <span key={progressName} id={`${progressName}Info`}>{progressName}</span>
             })}
             <div id='addTaskComponents'>
                 <input type="text" value={inputAddTask} onChange={onInputAddTaskChange}/>

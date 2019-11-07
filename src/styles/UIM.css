@@ -5,8 +5,8 @@
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
         "addTaskArea addTaskArea"
-        "area0       area1"
-        "area2       area3";
+        "doFirstArea       doLaterArea"
+        "delegateArea       eliminateArea";
 }
 
 #addTaskArea {
@@ -14,12 +14,12 @@
     background: #DCC2FF;
     border-radius: 10px;
     margin: 5px 5px 0px 5px;
-    padding: 10px 10px 10px 10px;
+    padding: 30px 30px 30px 30px;
 }
 
 
 #doFirstArea {
-    grid-area: area0;
+    grid-area: doFirstArea;
     background-image: url(../images/sunny_opacity.png);
     background-size: cover;
     border-radius: 10px;
@@ -31,7 +31,7 @@
 }
 
 #doLaterArea {
-    grid-area: area1;
+    grid-area: doLaterArea;
     background-image: url(../images/rainbow_opacity.png);
     background-size: cover;
     border-radius: 10px;
@@ -43,7 +43,7 @@
 }
 
 #delegateArea {
-    grid-area: area2;
+    grid-area: delegateArea;
     background-image: url(../images/cloud_opacity.png);
     background-size: cover;
     border-radius: 10px;
@@ -55,7 +55,7 @@
 }
 
 #eliminateArea {
-    grid-area: area3;
+    grid-area: eliminateArea;
     background-image: url(../images/rain_opacity.png);
     background-size: cover;
     border-radius: 10px;
@@ -67,42 +67,47 @@
 }
 
 #ideaTask {
+    color: #424242;
     display: inline-block;
     background: #FF82B2;
     border-radius: 10px;
-    padding: 2px 2px 0px 5px;
+    padding: 5px 8px 5px 8px;
     margin: 10px 0 0 10px;
     cursor: default;
 }
 
 #planningTask {
+    color: #424242;
     display: inline-block;
     background: #FFAD90;
     border-radius: 10px;
-    padding: 2px 2px 0px 5px;
+    padding: 5px 8px 5px 8px;
     margin: 10px 0 0 10px;
     cursor: default;
 }
 
 #donePlanTask {
+    color: #424242;
     display: inline-block;
     background: #FFFF99;
     border-radius: 10px;
-    padding: 2px 2px 0px 5px;
+    padding: 5px 8px 5px 8px;
     margin: 10px 0 0 10px;
     cursor: default;
 }
 
 #doingTask {
+    color: #424242;
     display: inline-block;
     background: #93FFAB;
     border-radius: 10px;
-    padding: 2px 2px 0px 5px;
+    padding: 5px 8px 5px 8px;
     margin: 10px 0 0 10px;
     cursor: default;
 }
 
 #doneTask {
+    color: #424242;
     display: inline-block;
     background: #99FFFF;
     border-radius: 10px;
@@ -114,14 +119,17 @@
 #areaName {
     font-weight: bold;
     font-family: Meiryo;
+    color: #424242;
     background: white;
-    padding: 3px;
+    padding: 7px 8px 5px 8px;
+    margin: 2px;
     display: table;
     border-radius: 5px;
     cursor : pointer;
 }
 
 #appTitle {
+    color: #424242;
     font-size: 170%;
     font-family: Meiryo;
     font-weight: bold;
@@ -134,12 +142,71 @@
 }
 
 #progressInfo {
+    color: #424242;
     margin: 20px 0 0 0;
     display: inline-block;
 }
 
 #progressName {
+    color: #424242;
     margin: 0 10px 0 0;
+    font-family: Meiryo;
+    font-weight: bold;
+}
+
+#ideaInfo {
+    color: #424242;
+    margin: 20px 10px 0 0;
+    padding: 5px 8px 5px 8px;
+    display: inline-block;
+    font-family: Meiryo;
+    font-weight: bold;
+    background: #FF82B2;
+    border-radius: 10px;
+}
+
+#planningInfo {
+    color: #424242;
+    margin: 20px 10px 0 0;
+    padding: 5px 8px 5px 8px;
+    display: inline-block;
+    font-family: Meiryo;
+    font-weight: bold;
+    background: #FFAD90;
+    border-radius: 10px;
+}
+
+#donePlanInfo {
+    color: #424242;
+    margin: 20px 10px 0 0;
+    padding: 5px 8px 5px 8px;
+    display: inline-block;
+    font-family: Meiryo;
+    font-weight: bold;
+    background: #FFFF99;
+    border-radius: 10px;
+}
+
+#doingInfo {
+    color: #424242;
+    margin: 20px 10px 0 0;
+    padding: 5px 8px 5px 8px;
+    display: inline-block;
+    font-family: Meiryo;
+    font-weight: bold;
+    background: #93FFAB;
+    border-radius: 10px;
+}
+
+#doneInfo {
+    color: #424242;
+    margin: 20px 10px 0 0;
+    padding: 5px 8px 5px 8px;
+    display: inline-block;
+    font-family: Meiryo;
+    font-weight: bold;
+    background: #99FFFF;
+    border-radius: 10px;
 }
 
 #progress0 {
