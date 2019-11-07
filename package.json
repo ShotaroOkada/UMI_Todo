@@ -1,5 +1,5 @@
 {
-  "name": "umi_todo",
+  "name": "uim_todo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -63,6 +63,11 @@
     "win": {
       "target": "msi",
       "icon": "./src/images/umiIcon.png"
+    },
+    "linux": {
+      "target": "deb",
+      "icon": "./src/images/umiIcon.png",
+      "maintainer": "Shotaro Okada <b1016117@gmail.com> (https://github.com/ShotaroOkada)"
     }
   },
   "scripts": {
