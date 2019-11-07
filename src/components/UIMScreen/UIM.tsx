@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { IProgresses } from 'src/states/Task';
+import { IProgressesTasks } from 'src/states/Task';
 import { useDispatch } from 'react-redux';
 import { toProgress } from 'src/actions/Display/ActionCreator';
 import Task from './Task';
@@ -10,7 +10,7 @@ export function dummy(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
 }
 
 type Props = {
-    progressTasks: IProgresses,
+    progressTasks: IProgressesTasks,
     areaName: string,
 }
 

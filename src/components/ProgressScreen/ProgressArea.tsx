@@ -1,13 +1,19 @@
 import * as React from 'react'
-import { progressNames } from 'src/states/Progress';
 import Progress from './Progress';
+import { useSelector } from 'react-redux';
+import IState from 'src/states';
+import { ITasks } from 'src/states/Task';
 
 export default function ProgressArea() {
+    const tasks = useSelector<IState, ITasks>(state => state.tasks)
     return(
     <>
-    {progressNames.map((progressName, progressNameIndex) => {
-        return <Progress key={progressName} progressName={progressName} progressNameIndex={progressNameIndex} />
-      })}
+    {Object.entries(tasks).map(([_, progressTasks]) => {
+      Object.entries(progressTasks).map(([progressName, tasks], progressIndex) => {
+        return <Progress key={progressName} progressName={progressName} progressIndex={progressIndex} tasks={tasks}/>
+      })
+    })
+    }
     </>
     )
 }
