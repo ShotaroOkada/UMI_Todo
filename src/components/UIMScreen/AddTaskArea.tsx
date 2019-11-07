@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { progressNames } from 'src/states/Progress';
 import { useDispatch } from 'react-redux';
-import { addNewTask } from 'src/actions/ChangeTaskQuantity/ChangeTaskQuantityActionCreator';
-import { IAddTask } from 'src/actions/ChangeTaskQuantity/ChangeTaskQuantityAction';
 import { areaNames } from 'src/states/Area';
+import { addTaskArguments } from 'src/actions/Tasks/Action';
+import { addTask } from 'src/actions/Tasks/ActionCreator';
 
 const { useState } = React;
 
@@ -23,11 +23,11 @@ export default function AddTask() {
         if (inputAddTask === '') {
             return;
         }
-        const addTaskObject: IAddTask = {
-            name: inputAddTask,
+        const addTaskObject: addTaskArguments = {
+            taskName: inputAddTask,
             areaName: selectedArea,
         }
-        dispatch(addNewTask(addTaskObject));
+        dispatch(addTask(addTaskObject));
         setInputaddTask('');
     }
 
@@ -59,21 +59,13 @@ export default function AddTask() {
             <br />
             {progressNames.map((progressName, index) => {
                 return <span key={progressName} id={'progressInfo'}>
-                    <span id={`progress${index}`}>
-                        ■
-                            </span>
-                    <span id={'progressName'}>
-                        {progressName}
-                    </span>
+                    <span id={`progress${index}`}>■</span>
+                    <span id={'progressName'}>{progressName}</span>
                 </span>
 
             })}
             <div id='addTaskComponents'>
-                <input
-                    type="text"
-                    value={inputAddTask}
-                    onChange={onInputAddTaskChange}
-                />
+                <input type="text" value={inputAddTask} onChange={onInputAddTaskChange}/>
                 <button id="mouseYubi" onClick={submitNewTask}>+</button>
                 {selectAreaRatio()}
             </div>

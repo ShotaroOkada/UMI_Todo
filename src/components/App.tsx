@@ -3,15 +3,16 @@ import { useSelector } from 'react-redux';
 import AreaScreen from './UIMScreen/UIMScreen';
 import ProgressScreen from 'src/components/ProgressScreen/ProgressScreen';
 import IState from 'src/states';
+import { displayName } from 'src/states/Display';
 
 function App() {
-    const nowDisplay = useSelector<IState, string>(state => state.display.nowDisplay)
+    const displayScreen = useSelector<IState, string>(state => state.display.displayScreen)
     return (
         <div style={{ height: '100%' }}>
-            {nowDisplay === 'area' &&
+            {displayScreen === displayName.area &&
                 <AreaScreen />
             }
-            {nowDisplay === 'progress' &&
+            {displayScreen === displayName.progress &&
                 <ProgressScreen />
             }
         </div>

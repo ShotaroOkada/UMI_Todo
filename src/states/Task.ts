@@ -1,5 +1,7 @@
+export interface IProgresses {
+    [progressName:string]: string[] // ここのstringにはタスクの名前が入る
+}
+
 export interface ITasks {
-    [areaName:string]: {
-        [progressName:string]: string[] // ここのstringにはタスクの名前が入る
-    }
+    [areaName:string]: IProgresses
 }
