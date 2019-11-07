@@ -13,7 +13,7 @@ export default function ProgressArea() {
      {Object.entries(progressTasks).map(([progressName, tasks]) => {
         return <Progress key={progressName}  progressName={progressName} tasks={tasks}/>
       })
-    })
+     }
 
     </>
     )
