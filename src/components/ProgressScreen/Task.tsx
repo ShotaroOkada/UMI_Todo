@@ -9,7 +9,7 @@ export type IProgressTaskParentProps = {
 export default function Task(props: IProgressTaskParentProps) {
     const { task, taskIndex } = props;
     return (
-        <Draggable draggableId={taskIndex.toString()} index={taskIndex}>
+        <Draggable draggableId={task} index={taskIndex}>
             {(provided: DraggableProvided) => (
                 <div 
                     key={task} id="taskLayout"
@@ -21,6 +21,5 @@ export default function Task(props: IProgressTaskParentProps) {
                 </div>
             )}
         </Draggable>
-
     )
 }

@@ -18,7 +18,7 @@ type Props = {
 export default function UIM(props: Props) {
     const {progressTasks, areaName} = props
     const dispatch = useDispatch();
-    const dispatchToProgress = () => dispatch(toProgress);
+    const dispatchToProgress = () => dispatch(toProgress({areaName}));
     return (
         <div id={`${areaName}Area`} key={`area${areaName}`} onClick={dispatchToProgress}>
             <div id="areaName">{japaneseAreaNames[areaName].name}</div>

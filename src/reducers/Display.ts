@@ -3,8 +3,8 @@ import DisplayAction from 'src/actions/Display/Action';
 import DisplayActionType from 'src/actions/Display/ActionType';
 
 const initialState: IDisplay = {
-    displayScreen: displayName.area,
-    displayAreaName: 'null'
+    screen: displayName.area,
+    areaName: 'null'
 }
 
 export default function display(state: IDisplay = initialState, action: DisplayAction): IDisplay {
@@ -12,14 +12,14 @@ export default function display(state: IDisplay = initialState, action: DisplayA
         case DisplayActionType.TO_PROGRESS:
             return {
                 ...state,
-                displayScreen: displayName.progress,
-                displayAreaName: action.payload.areaName
+                screen: displayName.progress,
+                areaName: action.payload.areaName
             }
         case DisplayActionType.TO_AREA:
             return {
                 ...state,
-                displayScreen: displayName.area,
-                displayAreaName: 'null'
+                screen: displayName.area,
+                areaName: 'null'
             }
         default:
             return state;

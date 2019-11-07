@@ -3,17 +3,16 @@ import Task from './Task';
 import { Droppable } from 'react-beautiful-dnd';
 
 type Props = {
-    progressName: string,
-    progressIndex: number,
+    progressName: string
     tasks: string[]
 }
 
 export default function Progress(props: Props) {
-    const { progressName, progressIndex ,tasks } = props;
+    const { tasks, progressName } = props;
     return (
-        <div id={progressName} key={progressName}>
+        <div id={`${progressName}Area`} key={progressName}>
             {progressName}
-            <Droppable key={`${progressName}:${progressIndex}`} droppableId={progressIndex.toString()}>
+            <Droppable key={progressName} droppableId={progressName}>
                 {(provided) => (
                     <div
                         id='dndSpace'
@@ -21,7 +20,7 @@ export default function Progress(props: Props) {
                         {...provided.droppableProps}
                     >
                         {tasks.map((task, taskIndex) => {
-                                return <Task key={`${task}:${taskIndex}`} task={task} taskIndex={taskIndex} />
+                            return <Task key={`${task}:${taskIndex}`} task={task} taskIndex={taskIndex} />
                         })}
                         {provided.placeholder}
                     </div>

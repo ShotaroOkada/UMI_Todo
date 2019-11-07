@@ -6,13 +6,13 @@ import IState from 'src/states';
 import { displayName } from 'src/states/Display';
 
 function App() {
-    const displayScreen = useSelector<IState, string>(state => state.display.displayScreen)
+    const screen = useSelector<IState, string>(state => state.display.screen)
     return (
         <div style={{ height: '100%' }}>
-            {displayScreen === displayName.area &&
+            {screen === displayName.area &&
                 <AreaScreen />
             }
-            {displayScreen === displayName.progress &&
+            {screen === displayName.progress &&
                 <ProgressScreen />
             }
         </div>

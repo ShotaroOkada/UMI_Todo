@@ -4,6 +4,6 @@ export enum displayName {
 }
 
 export default interface IDisplay {
-    displayScreen: string;
-    displayAreaName: string
+    screen: string;
+    areaName: string
 }
