@@ -30,7 +30,7 @@
   "homepage": "./",
   "main": "src/electron-starter.js",
   "build": {
-    "productName": "UMI Todo",
+    "productName": "UIM Todo",
     "appId": "try.example.com",
     "files": [
       "./src/electron-starter.js",
