@@ -122,7 +122,7 @@
     color: #424242;
     background: white;
     padding: 7px 8px 5px 8px;
-    margin: 2px;
+    margin: 3px;
     display: table;
     border-radius: 5px;
     cursor : pointer;
@@ -139,19 +139,6 @@
 
 #addTaskComponents {
     float: right;
-}
-
-#progressInfo {
-    color: #424242;
-    margin: 20px 0 0 0;
-    display: inline-block;
-}
-
-#progressName {
-    color: #424242;
-    margin: 0 10px 0 0;
-    font-family: Meiryo;
-    font-weight: bold;
 }
 
 #ideaInfo {
@@ -209,26 +196,39 @@
     border-radius: 10px;
 }
 
-#progress0 {
-    color: #FF82B2;
-}
-
-#progress1 {
-    color: #FFAD90;
-}
-
-#progress2 {
-    color: #FFFF99;
-}
-
-#progress3 {
-    color: #93FFAB;
-}
-
-#progress4 {
-    color: #99FFFF;
-}
-
 #dust {
     cursor: pointer;
 }
+
+input[type='text'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: #424242;
+    font-size: 16px;
+    font-family: Meiryo;
+    padding-left: 9px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 8px;
+    border: 0;
+}
+
+button {
+    border: 0;
+    font-size: 20px;
+    color: #424242;
+    font-family: Meiryo;
+    border-radius: 8px;
+    padding-bottom: 1px;
+    margin-left: 10px;
+    text-decoration: none;
+    transition: .2s;
+}
+
+
+/* input[type='radio'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+} */

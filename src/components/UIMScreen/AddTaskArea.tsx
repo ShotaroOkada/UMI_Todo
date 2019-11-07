@@ -55,17 +55,13 @@ export default function AddTask() {
 
     return (
         <div id="addTaskArea">
-            <div id="appTitle">Urgent Important Matrix</div>
+            <div id="appTitle">Urgent Important Matrix Todo</div>
             <br />
-            {progressNames.map((progressName, index) => {
-                // return <span key={progressName} id={'progressInfo'}>
-                //     <span id={`progress${index}`}>■</span>
-                //     <span id={'progressName'}>{progressName}</span>
-                // </span>
+            {progressNames.map(progressName => {
                 return <span key={progressName} id={`${progressName}Info`}>{progressName}</span>
             })}
             <div id='addTaskComponents'>
-                <input type="text" value={inputAddTask} onChange={onInputAddTaskChange}/>
+                <input type="text" placeholder='task name' value={inputAddTask} onChange={onInputAddTaskChange}/>
                 <button id="mouseYubi" onClick={submitNewTask}>+</button>
                 {selectAreaRatio()}
             </div>
